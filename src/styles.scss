@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: sans-serif;
+}
+
+body {
+    padding-top: 50px;
+}
+
+.exercise-block {
+    padding-left: 10%;
+}
+
+.exercise {
+    // background-color: rgb(240, 240, 240); 
+    // border-color: rgb(104, 104, 104); 
+    // border-style: solid; 
+    margin: 20px;
+    margin-bottom: 60px;
+}
+
+.exercise-topic {
+    font-size: 20px;
+}
+
+.exercise-result {
+    font-size: 20px;
+    font-weight: bold;
+    display: inline;
+    margin-left: 20px;
+}
+
+.exercise-type-hint {
+    font-size: 14px;
+    color: gray;
+}
+
+.exercise-check-button {
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.exercise-check-button:hover {
+    background-color: blue;
+    color: white;
+}

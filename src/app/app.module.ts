@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DisplayMathExampleComponent } from './display-math-example/display-math-example.component';
 import { MathjaxModule } from "mathjax-angular";
+import { ExerciseComponent } from './exercise/exercise.component';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
     AppComponent,
-    DisplayMathExampleComponent
+    DisplayMathExampleComponent,
+    ExerciseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MathjaxModule.forRoot()
+    MathjaxModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

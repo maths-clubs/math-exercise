@@ -1,16 +1,11 @@
-<app-display-math-example></app-display-math-example>
+<div style="color:rgb(165, 165, 165); position: fixed; top: 0px; left: 0px; right: 0px; padding: 10px; font-size: 30px; background-color: white;">Tobens Zebra ;)
+  <hr>
+</div>
 
+<div class="exercise-block">
+<h1>Termumformungen und Gleichungen lösen</h1>
 
-
-Das ist meine Aufgabenliste
-
-
-<div style="display: grid; grid-template-columns: 1fr 1fr;">
-<div style="background-color: rgb(240, 240, 240); border-color: blue; border-style: solid; margin: 5px; " *ngFor="let exercise of math_exercises">
-  <b>Das ist eine Aufgabe</b>
-  <div [mathjax]="exercise"></div>
-
-  Lösung: <input />  <button>Prüfen</button>
+<app-exercise *ngFor="let exercise of math_exercises; index as eidx" [exercise]="exercise"></app-exercise>
 
 </div>
-</div>
+

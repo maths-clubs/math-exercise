@@ -1,0 +1,16 @@
+<div class="exercise">
+  <div class="exercise-topic">{{ exercise.topic }}</div>
+  <br />
+  <div [mathjax]="exercise.text"></div>
+  <br />
+  <form (ngSubmit) = "checkSolution()">
+    <div class="exercise-type-hint">Wähle die richtige Antwort aus</div>
+    <br />
+    <div class="exercise-choice" *ngFor="let choice of exercise.choice; index as idx">
+      <input type="radio" name="solution" [value]="idx" [(ngModel)]="choosenSolution">{{ choice }}
+    </div>
+    <br />
+    <button class="exercise-check-button">Prüfen</button>
+    <div class="exercise-result">{{ resultText }}</div>
+  </form>
+</div>
