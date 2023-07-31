@@ -7,14 +7,16 @@ import { DisplayMathExampleComponent } from './display-math-example/display-math
 import { MathjaxModule } from "mathjax-angular";
 import { ExerciseComponent } from './exercise/exercise.component';
 import { FormsModule } from '@angular/forms';
-import { ExerciseListComponent } from './exercise-list/exercise-list.component'
+import { ExerciseListComponent } from './exercise-list/exercise-list.component';
+import { ExerciseTestListComponent } from './exercise-test-list/exercise-test-list.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplayMathExampleComponent,
     ExerciseComponent,
-    ExerciseListComponent
+    ExerciseListComponent,
+    ExerciseTestListComponent
   ],
   imports: [
     BrowserModule,
