@@ -1,5 +1,5 @@
 import { Component, Input} from '@angular/core';
-import { Exercise } from '../app.component';
+import { Exercise } from '../exercise.service';
 
 @Component({
   selector: 'app-exercise',

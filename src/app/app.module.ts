@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { DisplayMathExampleComponent } from './display-math-example/display-math-example.component';
 import { MathjaxModule } from "mathjax-angular";
 import { ExerciseComponent } from './exercise/exercise.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { ExerciseListComponent } from './exercise-list/exercise-list.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplayMathExampleComponent,
-    ExerciseComponent
+    ExerciseComponent,
+    ExerciseListComponent
   ],
   imports: [
     BrowserModule,

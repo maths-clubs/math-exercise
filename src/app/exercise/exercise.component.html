@@ -1,7 +1,7 @@
 <div class="exercise">
   <div class="exercise-topic">{{ exercise.topic }}</div>
   <br />
-  <div [mathjax]="exercise.text"></div>
+  <div>{{ exercise.text }}</div>
   <br />
   <form (ngSubmit) = "checkSolution()">
     <div class="exercise-type-hint">Wähle die richtige Antwort aus</div>

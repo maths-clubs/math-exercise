@@ -6,14 +6,24 @@ body {
     padding-top: 50px;
 }
 
+.header {
+    color:rgb(165, 165, 165); 
+    position: fixed; top: 0px; left: 0px; right: 0px; 
+    padding: 10px; 
+    font-size: 30px; 
+    background-color: white;
+}
+
+.nav-link {
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .exercise-block {
     padding-left: 10%;
 }
 
 .exercise {
-    // background-color: rgb(240, 240, 240); 
-    // border-color: rgb(104, 104, 104); 
-    // border-style: solid; 
     margin: 20px;
     margin-bottom: 60px;
 }
