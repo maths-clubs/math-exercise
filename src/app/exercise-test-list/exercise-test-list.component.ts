@@ -9,8 +9,25 @@ import { Exercise, ExerciseService } from '../exercise.service';
 })
 export class ExerciseTestListComponent {
   constructor(private exerciseService: ExerciseService) {
-
   }
 
-  math_exercises : Exercise[] = this.exerciseService.getExercises().slice(0, 2);
+  getRandom(arr: Exercise[] , n: number) : Exercise[] {
+    var result = new Array(n),
+    len = arr.length,
+    taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = arr[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+  }
+
+  math_exercises : Exercise[] = this.getRandom(this.exerciseService.getExercises(),2);
+
+  refresh() {
+    this.math_exercises = this.getRandom(this.exerciseService.getExercises(),2);
+  }
 }

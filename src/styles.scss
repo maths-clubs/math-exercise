@@ -53,3 +53,13 @@ body {
     background-color: blue;
     color: white;
 }
+
+@media print {
+    .header {
+        display: none;
+    }
+
+    .exercise {
+        break-inside: avoid;
+    }
+}

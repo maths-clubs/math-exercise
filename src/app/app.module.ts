@@ -8,7 +8,8 @@ import { MathjaxModule } from "mathjax-angular";
 import { ExerciseComponent } from './exercise/exercise.component';
 import { FormsModule } from '@angular/forms';
 import { ExerciseListComponent } from './exercise-list/exercise-list.component';
-import { ExerciseTestListComponent } from './exercise-test-list/exercise-test-list.component'
+import { ExerciseTestListComponent } from './exercise-test-list/exercise-test-list.component';
+import { StartHelpComponent } from './start-help/start-help.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ExerciseTestListComponent } from './exercise-test-list/exercise-test-li
     DisplayMathExampleComponent,
     ExerciseComponent,
     ExerciseListComponent,
-    ExerciseTestListComponent
+    ExerciseTestListComponent,
+    StartHelpComponent
   ],
   imports: [
     BrowserModule,

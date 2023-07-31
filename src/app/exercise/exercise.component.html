@@ -1,7 +1,7 @@
 <div class="exercise">
   <div class="exercise-topic">{{ exercise.topic }}</div>
   <br />
-  <div>{{ exercise.text }}</div>
+  <div [mathjax]="exercise.text"></div>
   <br />
   <form (ngSubmit) = "checkSolution()">
     <div class="exercise-type-hint">Wähle die richtige Antwort aus</div>
@@ -9,8 +9,10 @@
     <div class="exercise-choice" *ngFor="let choice of exercise.choice; index as idx">
       <input type="radio" name="solution" [value]="idx" [(ngModel)]="choosenSolution">{{ choice }}
     </div>
+    <div [hidden]="!checkable">
     <br />
-    <button class="exercise-check-button">Prüfen</button>
+    <button  class="exercise-check-button">Prüfen</button>
     <div class="exercise-result">{{ resultText }}</div>
+    </div>
   </form>
 </div>

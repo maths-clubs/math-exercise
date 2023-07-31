@@ -8,6 +8,7 @@ import { Exercise } from '../exercise.service';
 })
 export class ExerciseComponent {
   @Input() exercise: Exercise = {topic:"",text:"",choice:[],solution:0};
+  @Input() checkable: boolean = true;
 
   resultText: string = "";
 
