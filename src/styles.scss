@@ -12,6 +12,9 @@ body {
     padding: 10px; 
     font-size: 30px; 
     background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .nav-link {
@@ -50,6 +53,10 @@ body {
     color: gray;
 }
 
+.exercise-choice {
+    margin-bottom: 10px;
+}
+
 .exercise-check-button {
     border-radius: 5px;
     padding: 5px;
@@ -80,6 +87,10 @@ body {
 }
 
 @media print {
+    body {
+        padding-top: 10px;
+    }
+
     .header {
         display: none;
     }
@@ -90,5 +101,9 @@ body {
 
     .exercise {
         break-inside: avoid;
+    }
+
+    .hide-on-print {
+        display: none;
     }
 }
