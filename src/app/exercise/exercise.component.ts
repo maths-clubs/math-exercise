@@ -12,7 +12,7 @@ export class ExerciseComponent {
 
   resultText: string = "";
 
-  choosenSolution: number = -1;
+  choosenSolution: number = NaN;
 
   checkSolution() {
     if (this.choosenSolution == this.exercise.solution ) {
