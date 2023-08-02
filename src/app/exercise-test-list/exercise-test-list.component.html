@@ -1,8 +1,9 @@
 <div class="exercise-block">
-    <h1><b>Prüfungsmodus</b></h1> <button (click)="refresh()">Aufgaben neu auswählen</button>
+    <div class="exercise-test-header">Prüfungsmodus <button (click)="refresh()">Aufgaben neu auswählen</button></div>
     <h1>Termumformungen und Gleichungen lösen</h1>
-        
-        <app-exercise [checkable]="false" *ngFor="let exercise of math_exercises; index as eidx" [exercise]="exercise"></app-exercise>
-        
+
+    <div class="exercise-list-item" *ngFor="let exercise of math_exercises; index as eidx">
+        <div class="exercise-topic">{{ eidx + 1 }}.&nbsp;</div><app-exercise [checkable]="false"
+            [exercise]="exercise"></app-exercise>
     </div>
-    
+</div>

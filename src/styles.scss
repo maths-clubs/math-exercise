@@ -3,7 +3,7 @@
 }
 
 body {
-    padding-top: 50px;
+    padding-top: 100px;
 }
 
 .header {
@@ -24,8 +24,14 @@ body {
 }
 
 .exercise {
+    //margin: 20px;
+    //margin-bottom: 60px;
+}
+
+.exercise-list-item {
     margin: 20px;
     margin-bottom: 60px;
+    display: flex;
 }
 
 .exercise-topic {
@@ -47,6 +53,8 @@ body {
 .exercise-check-button {
     border-radius: 5px;
     padding: 5px;
+    transition-duration: 200ms;
+    transition-property: background-color;
 }
 
 .exercise-check-button:hover {
@@ -54,8 +62,29 @@ body {
     color: white;
 }
 
+.exercise-test-header {
+    font-size: 35px;
+
+    button {
+        vertical-align: middle;
+        border-radius: 5px;
+        padding: 5px;
+        transition-duration: 200ms;
+        transition-property: background-color;
+    }
+
+    button:hover {
+        background-color: blue;
+        color: white;
+    }
+}
+
 @media print {
     .header {
+        display: none;
+    }
+
+    .exercise-test-header {
         display: none;
     }
 

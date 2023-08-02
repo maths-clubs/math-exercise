@@ -25,9 +25,9 @@ export class ExerciseTestListComponent {
     return result;
   }
 
-  math_exercises : Exercise[] = this.getRandom(this.exerciseService.getExercises(),2);
+  math_exercises : Exercise[] = this.getRandom(this.exerciseService.getExercises(),4);
 
   refresh() {
-    this.math_exercises = this.getRandom(this.exerciseService.getExercises(),2);
+    this.math_exercises = this.getRandom(this.exerciseService.getExercises(),4);
   }
 }
