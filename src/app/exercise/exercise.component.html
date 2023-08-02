@@ -7,11 +7,11 @@
     <div *ngIf="exercise.choice">
       <div class="exercise-type-hint">Wähle die richtige Antwort aus</div>
       <br />
-      <div class="exercise-choice" *ngFor="let choice of exercise.choice; index as idx">
-        <input type="radio" name="solution" [value]="idx" [(ngModel)]="choosenSolution">{{ choice }}
+      <div class="exercise-choice" *ngFor="let choice of exercise.choice; let idx = index">
+        {{ letters[idx] }}: <input type="radio" name="solution" [value]="idx" [(ngModel)]="choosenSolution">{{ choice }}
       </div>
     </div>
-    <div *ngIf="!exercise.choice">
+    <div *ngIf="!exercise.choice && checkable">
       <div class="exercise-type-hint">Gib hier Deine Antwort ein</div>
       <br />
       <input type="number" name="solution" [(ngModel)]="choosenSolution">

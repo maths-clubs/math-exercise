@@ -14,6 +14,8 @@ export class ExerciseComponent {
 
   choosenSolution: number = NaN;
 
+  letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
   checkSolution() {
     if (this.choosenSolution == this.exercise.solution ) {
       this.resultText = "Richtig";
