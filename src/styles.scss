@@ -37,6 +37,16 @@ body {
     display: flex;
 }
 
+.exercise-solution-list {
+    margin: 20px;
+    margin-bottom: 60px;
+
+    table, th, td {
+        border-collapse: collapse;
+        border: 1px solid;
+    }
+}
+
 .exercise-topic {
     font-size: 20px;
 }

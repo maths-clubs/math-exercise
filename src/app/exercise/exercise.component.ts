@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, Output} from '@angular/core';
 import { Exercise } from '../exercise.service';
 
 @Component({
@@ -9,18 +9,24 @@ import { Exercise } from '../exercise.service';
 export class ExerciseComponent {
   @Input() exercise: Exercise = {topic:"",text:"",choice:[],solution:0};
   @Input() checkable: boolean = true;
+  @Input() singleCheck: boolean = true;
 
   resultText: string = "";
 
-  choosenSolution: number = NaN;
+  @Input() 
+  choosenSolution: Solution = { value: NaN };
 
   letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   checkSolution() {
-    if (this.choosenSolution == this.exercise.solution ) {
+    if (this.choosenSolution.value == this.exercise.solution ) {
       this.resultText = "Richtig";
     } else {
       this.resultText = "Falsch";
     }
   }
+}
+
+export interface Solution {
+  value: number;
 }

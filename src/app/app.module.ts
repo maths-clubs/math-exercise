@@ -8,7 +8,8 @@ import { ExerciseComponent } from './exercise/exercise.component';
 import { FormsModule } from '@angular/forms';
 import { ExerciseListComponent } from './exercise-list/exercise-list.component';
 import { ExerciseTestListComponent } from './exercise-test-list/exercise-test-list.component';
-import { StartHelpComponent } from './start-help/start-help.component'
+import { StartHelpComponent } from './start-help/start-help.component';
+import { ExercisePrintTestListComponent } from './exercise-print-test-list/exercise-print-test-list.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StartHelpComponent } from './start-help/start-help.component'
     ExerciseComponent,
     ExerciseListComponent,
     ExerciseTestListComponent,
-    StartHelpComponent
+    StartHelpComponent,
+    ExercisePrintTestListComponent
   ],
   imports: [
     BrowserModule,

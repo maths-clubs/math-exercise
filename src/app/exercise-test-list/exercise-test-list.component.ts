@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ExerciseComponent } from '../exercise/exercise.component';
+import { Component, Input } from '@angular/core';
+import { ExerciseComponent, Solution } from '../exercise/exercise.component';
 import { Exercise, ExerciseService } from '../exercise.service';
 
 @Component({
@@ -11,23 +11,21 @@ export class ExerciseTestListComponent {
   constructor(private exerciseService: ExerciseService) {
   }
 
-  getRandom(arr: Exercise[] , n: number) : Exercise[] {
-    var result = new Array(n),
-    len = arr.length,
-    taken = new Array(len);
-    if (n > len)
-        throw new RangeError("getRandom: more elements taken than available");
-    while (n--) {
-        var x = Math.floor(Math.random() * len);
-        result[n] = arr[x in taken ? taken[x] : x];
-        taken[x] = --len in taken ? taken[len] : len;
-    }
-    return result;
-  }
+  math_exercises : Exercise[] = this.exerciseService.getNumExercises(4);
 
-  math_exercises : Exercise[] = this.getRandom(this.exerciseService.getExercises(),4);
+  choosenSolutions : Solution[] = this.initSolutions(4);
 
   refresh() {
-    this.math_exercises = this.getRandom(this.exerciseService.getExercises(),4);
+    this.math_exercises = this.exerciseService.getNumExercises(4);
+    this.choosenSolutions = this.initSolutions(4);
+  }
+
+  private initSolutions(count: number) : Solution[] {
+    let arr : Solution[] = new Array(count);
+    for (let i=0;i<count;i++) {
+      arr[i] = { value: NaN };
+    }
+    return arr;
   }
 }
+

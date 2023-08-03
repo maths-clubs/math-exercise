@@ -8,15 +8,15 @@
       <div class="exercise-type-hint">Wähle die richtige Antwort aus</div>
       <br />
       <div class="exercise-choice" *ngFor="let choice of exercise.choice; let idx = index">
-        {{ letters[idx] }}: <input type="radio" name="solution" [value]="idx" [(ngModel)]="choosenSolution">{{ choice }}
+        {{ letters[idx] }}: <input type="radio" name="solution" [value]="idx" [(ngModel)]="choosenSolution.value">{{ choice }}
       </div>
     </div>
     <div *ngIf="!exercise.choice && checkable">
       <div class="exercise-type-hint">Gib hier Deine Antwort ein</div>
       <br />
-      <input type="number" name="solution" [(ngModel)]="choosenSolution">
+      <input type="number" name="solution" [(ngModel)]="choosenSolution.value">
     </div>
-    <div [hidden]="!checkable">
+    <div [hidden]="!checkable || !singleCheck">
       <br />
       <button class="exercise-check-button">Prüfen</button>
       <div class="exercise-result">{{ resultText }}</div>

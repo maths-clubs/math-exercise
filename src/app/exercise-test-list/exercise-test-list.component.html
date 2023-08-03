@@ -1,9 +1,14 @@
 <div class="exercise-block">
-    <div class="exercise-test-header">Prüfungsmodus <button (click)="refresh()">Aufgaben neu auswählen</button></div>
+    <div class="exercise-test-header">Übungsmodus <button (click)="refresh()">Aufgaben neu auswählen</button></div>
     <h1>Termumformungen und Gleichungen lösen</h1>
 
-    <div class="exercise-list-item" *ngFor="let exercise of math_exercises; index as eidx">
-        <div class="exercise-topic">{{ eidx + 1 }}.&nbsp;</div><app-exercise [checkable]="false"
-            [exercise]="exercise"></app-exercise>
+    <div style="display:grid; grid-template-columns: 10% 90%; column-gap:10px;">
+        <div class="exercise-solution-list" ><table><th>Nr</th><th>Lsg</th>
+            <tr *ngFor="let exercise of math_exercises; index as eidx"><td align="center">{{ eidx + 1 }}.</td><td align="center">{{ choosenSolutions[eidx].value }}</td></tr>
+        </table></div>
+        <div class="exercise-list-item" style="grid-column:2" *ngFor="let exercise of math_exercises; index as eidx">
+            <div class="exercise-topic">{{ eidx + 1 }}.&nbsp;</div><app-exercise [checkable]="true"
+                [exercise]="exercise" [singleCheck]="false" (choosenSolution)="choosenSolutions[eidx]"></app-exercise>
+        </div>
     </div>
 </div>
