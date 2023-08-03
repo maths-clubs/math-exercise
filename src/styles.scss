@@ -44,6 +44,11 @@ body {
     table, th, td {
         border-collapse: collapse;
         border: 1px solid;
+        padding: 2px;
+    }
+
+    th {
+        background-color: gray;
     }
 }
 
@@ -77,6 +82,16 @@ body {
 .exercise-check-button:hover {
     background-color: blue;
     color: white;
+}
+
+.solution-ok {
+    color:green;
+    font-weight: bold;
+}
+
+.solution-error {
+    color:red;
+    font-weight: bold;
 }
 
 .exercise-test-header {

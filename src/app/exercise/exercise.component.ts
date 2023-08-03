@@ -1,4 +1,4 @@
-import { Component, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import { Exercise } from '../exercise.service';
 
 @Component({
@@ -15,6 +15,9 @@ export class ExerciseComponent {
 
   @Input() 
   choosenSolution: Solution = { value: NaN };
+
+  @Output() 
+  choosenSolutionChange = new EventEmitter<Solution>();
 
   letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
