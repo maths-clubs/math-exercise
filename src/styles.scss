@@ -3,7 +3,7 @@
 }
 
 body {
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 .header {
@@ -13,8 +13,28 @@ body {
     font-size: 30px; 
     background-color: white;
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 10px;
+    white-space: nowrap;
+
+    a {
+        font-size: 14px;
+        color: black;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 5px;
+        border-color: gray;
+        padding: 5px;
+        background-color: rgb(207, 207, 207);
+        transition-duration: 200ms;
+        transition-property: background-color;
+    }
+
+    a:hover {
+        background-color: blue;
+        color: white;
+    }
 }
 
 .nav-link {
@@ -24,6 +44,11 @@ body {
 
 .exercise-block {
     padding-left: 10%;
+
+    h1 {
+        font-size: 25px;
+        font-weight: normal;       
+    }
 }
 
 .exercise {
@@ -48,7 +73,7 @@ body {
     }
 
     th {
-        background-color: gray;
+        background-color: rgb(207, 207, 207);
     }
 }
 
@@ -95,7 +120,7 @@ body {
 }
 
 .exercise-test-header {
-    font-size: 35px;
+    font-size: 30px;
 
     button {
         vertical-align: middle;

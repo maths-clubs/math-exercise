@@ -4,8 +4,8 @@
 
     <div style="display:flex">
         <div class="exercise-solution-list">
-            <button class="exercise-check-button" (click)="checkResults()">Prüfen</button><br/><br/>
-            <table *ngIf="showResults">
+            <button class="exercise-check-button" (click)="checkResults()">{{ showResults?"Schließe":"Prüfe Ergebnisse" }}</button><br/><br/>
+            <table width="100%" *ngIf="showResults">
                 <th>Nr</th>
                 <th>Lsg</th>
                 <tr *ngFor="let exercise of math_exercises; index as eidx">

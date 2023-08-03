@@ -18,7 +18,7 @@ export class ExerciseTestListComponent {
   showResults: boolean = false;
 
   checkResults() {
-    this.showResults = true;
+    this.showResults = !this.showResults;
   }
 
   letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
