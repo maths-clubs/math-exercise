@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +25,8 @@ import { ExercisePrintTestListComponent } from './exercise-print-test-list/exerc
     BrowserModule,
     AppRoutingModule,
     MathjaxModule.forRoot(),
-    FormsModule
+    FormsModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

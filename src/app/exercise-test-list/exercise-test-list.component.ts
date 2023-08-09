@@ -1,19 +1,24 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ExerciseComponent, Solution } from '../exercise/exercise.component';
 import { Exercise, ExerciseService } from '../exercise.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-exercise-test-list',
   templateUrl: './exercise-test-list.component.html',
   styleUrls: ['./exercise-test-list.component.scss']
 })
-export class ExerciseTestListComponent {
+export class ExerciseTestListComponent implements OnInit {
   constructor(private exerciseService: ExerciseService) {
   }
+  
+  ngOnInit(): void {
+    this.refresh();
+  }
 
-  math_exercises: Exercise[] = this.exerciseService.getNumExercises(4);
+  math_exercises: Exercise[] = [];
 
-  choosenSolutions: Solution[] = this.initSolutions(4);
+  choosenSolutions: Solution[] = [];
 
   showResults: boolean = false;
 
@@ -34,9 +39,13 @@ export class ExerciseTestListComponent {
   }
 
   refresh() {
-    this.math_exercises = this.exerciseService.getNumExercises(4);
-    this.choosenSolutions = this.initSolutions(4);
-    this.showResults = false;
+    this.exerciseService.getNumExercises(4).subscribe(
+      exercises => {
+        this.math_exercises = exercises;
+        this.choosenSolutions = this.initSolutions(4);
+        this.showResults = false;
+      }
+    );
   }
 
   private initSolutions(count: number): Solution[] {

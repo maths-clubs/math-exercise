@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ExerciseComponent } from '../exercise/exercise.component';
 import { Exercise, ExerciseService } from '../exercise.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-exercise-list',
@@ -9,8 +10,8 @@ import { Exercise, ExerciseService } from '../exercise.service';
 })
 export class ExerciseListComponent {
   constructor(private exerciseService: ExerciseService) {
-
+    this.exercises$ = this.exerciseService.getExercises();
   }
 
-  math_exercises : Exercise[] = this.exerciseService.getExercises();
+  exercises$ : Observable<Exercise[]>;
 }

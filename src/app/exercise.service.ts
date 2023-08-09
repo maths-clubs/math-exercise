@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable, first, map } from 'rxjs';
 
 /*
 this one will eventually load exercises from a server.
@@ -8,8 +10,12 @@ this one will eventually load exercises from a server.
 })
 export class ExerciseService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { 
+    this.http.get<Exercise[]>('/assets/json/exercises.json')
+      .subscribe(data => this.mathExercises$.next(data));
+  }
 
+  /*
   math_exercises : Exercise[] = [
     {topic: "Vereinfache", text:"$x + 6a + 5x + 8a$", choice:[ "$5x^2 + 14a$", "$6x - 2a$", "$6x + 14a$" ], solution:2 },
     {topic: "Vereinfache", text:"$7x + 6a - 2b - 8a - 7x$", choice:[ "$- 2a - 2b$", "$- 2a - 9x$", "$- 2a - 2b - 7x$" ], solution:0 },
@@ -23,22 +29,28 @@ export class ExerciseService {
     {topic: "Löse die Gleichung und gib den Wert von x an.", text:"$5(3 - x) = -10$", solution:5 },
     {topic: "Löse die Gleichung und gib den Wert von x an.", text:"$6x + 2 = 4x - 10$", solution:-6 },
     {topic: "Löse die Gleichung und gib den Wert von x an.", text:"$5(x + 11) = 10(x - 3)$", solution:5 },
-  ];
+  ]; */
 
-  getExercises() : Exercise[] {
-    return this.math_exercises;
+  mathExercises$ : BehaviorSubject<Exercise[]> = new BehaviorSubject<Exercise[]>([]); 
+
+  getExercises() : Observable<Exercise[]> {
+    return this.mathExercises$;
   }
   
-  getNumExercises(count : number) : Exercise[] {
-    return this.getRandom(this.math_exercises, count);
+  getNumExercises(count : number) : Observable<Exercise[]> {
+    return this.getExercises()
+    .pipe(
+      map( exercises => this.getRandom(exercises, count)), 
+      first());
   }
 
   private getRandom(arr: Exercise[] , n: number) : Exercise[] {
     var result = new Array(n),
     len = arr.length,
     taken = new Array(len);
-    if (n > len)
-        throw new RangeError("getRandom: more elements taken than available");
+    if (n > len) {
+        return [];
+    }
     while (n--) {
         var x = Math.floor(Math.random() * len);
         result[n] = arr[x in taken ? taken[x] : x];
