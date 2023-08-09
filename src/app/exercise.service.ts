@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, first, map } from 'rxjs';
+import { BehaviorSubject, Observable, first, map, switchMap } from 'rxjs';
 
 /*
 this one will eventually load exercises from a server.
@@ -11,8 +11,13 @@ this one will eventually load exercises from a server.
 export class ExerciseService {
 
   constructor(private http: HttpClient) { 
-    this.http.get<Exercise[]>('/assets/json/exercises.json')
-      .subscribe(data => this.mathExercises$.next(data));
+    this.http.get<ExerciseGroup[]>('/assets/json/exercises.json')
+      .pipe(switchMap( data => {
+        this.groups$.next(data);
+        // at the moment we starting with the first defined group
+        return this.http.get<Exercise[]>('/assets/json/' + data[0].data)
+      }))
+      .subscribe(dataExercises => this.exercises$.next(dataExercises));
   }
 
   /*
@@ -31,10 +36,21 @@ export class ExerciseService {
     {topic: "Löse die Gleichung und gib den Wert von x an.", text:"$5(x + 11) = 10(x - 3)$", solution:5 },
   ]; */
 
-  mathExercises$ : BehaviorSubject<Exercise[]> = new BehaviorSubject<Exercise[]>([]); 
+  groups$: BehaviorSubject<ExerciseGroup[]> = new BehaviorSubject<ExerciseGroup[]>([]);
+
+  getGroups() : Observable<ExerciseGroup[]> {
+    return this.groups$;
+  }
+  
+  exercises$ : BehaviorSubject<Exercise[]> = new BehaviorSubject<Exercise[]>([]); 
+
+  readExercises( data: string ) {
+    this.http.get<Exercise[]>('/assets/json/' + data)
+      .subscribe(dataExercises => this.exercises$.next(dataExercises));
+  }
 
   getExercises() : Observable<Exercise[]> {
-    return this.mathExercises$;
+    return this.exercises$;
   }
   
   getNumExercises(count : number) : Observable<Exercise[]> {
@@ -65,4 +81,9 @@ export interface Exercise {
   text: string;
   choice?: string[];
   solution: number;
+}
+
+export interface ExerciseGroup {
+  name: string;
+  data: string; 
 }

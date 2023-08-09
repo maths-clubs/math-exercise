@@ -1,4 +1,7 @@
 <div class="header">Tobens Zebra ;)
+  <select (change)="selectExerciseGroup($event)">
+    <option *ngFor="let group of groups$ | async" [value]="group.data">{{ group.name }}</option>
+  </select>
   <a class="nav-link" routerLink="/list">Übung</a><a class="nav-link" routerLink="/test">Test</a><a class="nav-link" routerLink="/print-test">Prüfungsblatt</a>
   <hr>
 </div>
