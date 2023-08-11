@@ -3,20 +3,40 @@
 }
 
 body {
-    padding-top: 50px;
+    padding-top: 60px;
 }
 
 .header {
     color:rgb(165, 165, 165); 
     position: fixed; top: 0px; left: 0px; right: 0px; 
-    padding: 10px; 
-    font-size: 30px; 
+    font-size: 20px; 
+    background-color: white;
+    padding-top: 5px; 
+    padding-bottom: 5px;
+    padding-left: 10px; 
+}
+
+.header-2 {
+    color:rgb(165, 165, 165); 
+    position: fixed; top: 30px; left: 0px; right: 0px; 
+    padding-left: 10px; 
+    padding-top: 2px;
     background-color: white;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     gap: 10px;
     white-space: nowrap;
+
+    select {
+        font-size: 14px;
+        color: black;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 5px;
+        border-color: gray;
+        padding: 2px;
+    }
 
     a {
         font-size: 14px;
@@ -25,7 +45,7 @@ body {
         border-width: 2px;
         border-radius: 5px;
         border-color: gray;
-        padding: 5px;
+        padding: 2px;
         background-color: rgb(207, 207, 207);
         transition-duration: 200ms;
         transition-property: background-color;
