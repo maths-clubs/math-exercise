@@ -6,7 +6,8 @@
   <a class="nav-link" routerLink="/list">Übung</a><a class="nav-link" routerLink="/test">Test</a><a class="nav-link" routerLink="/print-test">Prüfungsblatt</a>
   <hr>
 </div>
-<div>
-{{ choosenGroup.name }}<p>
+<div class="exercise-block" *ngIf="choosenGroup">
+<p></p>
+{{ choosenGroup.descr }}<p></p>
 </div>
 <router-outlet></router-outlet>

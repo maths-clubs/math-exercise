@@ -71,4 +71,5 @@ export interface Exercise {
 export interface ExerciseGroup {
   name: string;
   data: string; 
+  descr?: string;
 }

@@ -1,4 +1,4 @@
 [
-    {"data": "exercise_class_8_1.json", "name":"Aufgaben Klasse 8 Nr. 1"}, 
-    {"data": "exercise_class_8_2.json", "name":"Aufgaben Klasse 8 Nr. 2"} 
+    {"data": "exercise_class_8_1.json", "name":"Aufgaben Klasse 8 Nr. 1", "descr":"Das sind einige Aufgaben für das Üben von Termumformungen und Gleichungen." }, 
+    {"data": "exercise_class_8_2.json", "name":"Aufgaben Klasse 8 Nr. 2", "descr":"Das sind weitere Aufgaben für das Üben von Termumformungen und Gleichungen." } 
 ]
