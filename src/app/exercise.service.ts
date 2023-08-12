@@ -12,13 +12,16 @@ export class ExerciseService {
 
   constructor(private http: HttpClient) { 
     this.http.get<ExerciseGroup[]>('/assets/json/exercises.json')
-      //.subscribe(group => this.groups$.next(group));
-      .pipe(switchMap( data => {
+      .subscribe(groups => {
+        this.groups$.next(groups);
+        this.readExercises(groups[0].data);
+      });
+      /*.pipe(switchMap( data => {
         this.groups$.next(data);
         // at the moment we starting with the first defined group
         return this.http.get<Exercise[]>('/assets/json/' + data[0].data)
       }))
-      .subscribe(dataExercises => this.exercises$.next(dataExercises));
+      .subscribe(dataExercises => this.exercises$.next(dataExercises)); */
   }
 
   groups$: BehaviorSubject<ExerciseGroup[]> = new BehaviorSubject<ExerciseGroup[]>([]);

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ExerciseGroup, ExerciseService } from './exercise.service';
 import { Observable, Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,15 +16,24 @@ export class AppComponent implements OnInit, OnDestroy {
 
   subscriptions : Subscription[] = [];
 
-  constructor(private exerciseService: ExerciseService, private _router: Router) {
+  queryGroup: string = '';
+
+  constructor(private exerciseService: ExerciseService, private _router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.subscriptions.push(
       this.exerciseService.getGroups()
       .subscribe(groups => {
+        if (groups.length == 0) 
+          return;
         this.groups = groups;
-        this.choosenGroup = groups[0];
+        this.queryGroup = this.route.snapshot.queryParams['group'];
+        this.choosenGroup = groups.find(group => group.data === this.queryGroup) || groups[0];
+        if (this.queryGroup)
+          this.switchExerciseGroup();
+        else
+          this.exerciseService.readExercises(this.choosenGroup.data);
       })
     );
   }
@@ -36,7 +45,11 @@ export class AppComponent implements OnInit, OnDestroy {
   selectExerciseGroup($event: any) {
     this.choosenGroup = this.groups.find(group => group.data ===  $event.target.value) 
       || { name: '', data: ''};
-    this.exerciseService.readExercises($event.target.value);
+    this.switchExerciseGroup();
+  }
+
+  switchExerciseGroup() {
+    this.exerciseService.readExercises(this.choosenGroup.data);
     this._router.navigateByUrl('/list');
   }
 }

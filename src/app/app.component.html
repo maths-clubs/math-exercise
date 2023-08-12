@@ -1,6 +1,6 @@
 <div class="header">Tobens Zebra ;)</div>
 <div class="header-2">
-  <select (change)="selectExerciseGroup($event)">
+  <select (change)="selectExerciseGroup($event)" *ngIf="!queryGroup">
     <option *ngFor="let group of groups" [value]="group.data">{{ group.name }}</option>
   </select>
   <a class="nav-link" routerLink="/list">Übung</a><a class="nav-link" routerLink="/test">Test</a><a class="nav-link" routerLink="/print-test">Prüfungsblatt</a>
