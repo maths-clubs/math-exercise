@@ -6,9 +6,9 @@ import { StartHelpComponent } from './start-help/start-help.component';
 import { ExercisePrintTestListComponent } from './exercise-print-test-list/exercise-print-test-list.component';
 
 const routes: Routes = [
-  { path: 'list', component: ExerciseListComponent },
-  { path: 'print-test', component: ExercisePrintTestListComponent },
-  { path: 'test', component: ExerciseTestListComponent, data: { checkable : true} },
+  { path: 'list/:id', component: ExerciseListComponent },
+  { path: 'print-test/:id', component: ExercisePrintTestListComponent },
+  { path: 'test/:id', component: ExerciseTestListComponent, data: { checkable : true} },
   { path: '', component: StartHelpComponent }
 ];
 

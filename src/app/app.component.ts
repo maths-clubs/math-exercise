@@ -12,7 +12,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   groups : ExerciseGroup[] = [];
 
-  choosenGroup : ExerciseGroup = { name: '', data: ''};
+  choosenGroup : ExerciseGroup = { name: '', id: ''};
 
   subscriptions : Subscription[] = [];
 
@@ -28,12 +28,14 @@ export class AppComponent implements OnInit, OnDestroy {
         if (groups.length == 0) 
           return;
         this.groups = groups;
-        this.queryGroup = this.route.snapshot.queryParams['group'];
-        this.choosenGroup = groups.find(group => group.data === this.queryGroup) || groups[0];
+
+        this.queryGroup = this.route.snapshot.queryParams['group'] || this.route.snapshot.params["id"];
+        this.choosenGroup = groups.find(group => group.id == this.queryGroup) || groups[0];
+        
         if (this.queryGroup)
           this.switchExerciseGroup();
         else
-          this.exerciseService.readExercises(this.choosenGroup.data);
+          this.exerciseService.readExercises(this.choosenGroup.id);
       })
     );
   }
@@ -43,14 +45,14 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   selectExerciseGroup($event: any) {
-    this.choosenGroup = this.groups.find(group => group.data ===  $event.target.value) 
-      || { name: '', data: ''};
+    this.choosenGroup = this.groups.find(group => group.id ===  $event.target.value) 
+      || { name: '', id: ''};
     this.switchExerciseGroup();
   }
 
   switchExerciseGroup() {
-    this.exerciseService.readExercises(this.choosenGroup.data);
-    this._router.navigateByUrl('/list');
+    this.exerciseService.readExercises(this.choosenGroup.id);
+    this._router.navigateByUrl('/list/' + this.choosenGroup.id);
   }
 }
 

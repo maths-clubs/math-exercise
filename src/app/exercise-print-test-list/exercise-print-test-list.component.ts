@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Exercise, ExerciseService } from '../exercise.service';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-exercise-print-test-list',
@@ -8,7 +9,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./exercise-print-test-list.component.scss']
 })
 export class ExercisePrintTestListComponent implements OnInit { 
-  constructor(private exerciseService: ExerciseService) {
+  constructor(private exerciseService: ExerciseService, private route: ActivatedRoute) {
+    this.exerciseService.readExercises(route.snapshot.params['id']);
   }
   
   ngOnInit(): void {

@@ -14,7 +14,7 @@ export class ExerciseService {
     this.http.get<ExerciseGroup[]>('assets/json/exercises.json')
       .subscribe(groups => {
         this.groups$.next(groups);
-        this.readExercises(groups[0].data);
+        this.readExercises(groups[0].id);
       });
       /*.pipe(switchMap( data => {
         this.groups$.next(data);
@@ -33,8 +33,10 @@ export class ExerciseService {
   exercises$ : BehaviorSubject<Exercise[]> = new BehaviorSubject<Exercise[]>([]); 
 
   readExercises( data: string ) {
-    this.http.get<Exercise[]>('assets/json/' + data)
-      .subscribe(dataExercises => this.exercises$.next(dataExercises));
+    if (data) {
+      this.http.get<Exercise[]>('assets/json/' + data + ".json")
+        .subscribe(dataExercises => this.exercises$.next(dataExercises));
+    }
   }
 
   getExercises() : Observable<Exercise[]> {
@@ -72,7 +74,7 @@ export interface Exercise {
 }
 
 export interface ExerciseGroup {
+  id: string; 
   name: string;
-  data: string; 
   descr?: string;
 }
