@@ -6,7 +6,7 @@
   <a class="nav-link" routerLink="/list/{{ choosenGroup.id }}">Übung</a><a class="nav-link" routerLink="/test/{{ choosenGroup.id }}">Test</a><a class="nav-link" routerLink="/print-test/{{ choosenGroup.id }}">Prüfungsblatt</a>
   <hr>
 </div>
-<div class="exercise-block" *ngIf="choosenGroup">
+<div class="exercise-block | hide-on-print" *ngIf="choosenGroup">
 <p></p>
 {{ choosenGroup.descr }}<p></p>
 </div>
