@@ -11,7 +11,7 @@ this one will eventually load exercises from a server.
 export class ExerciseService {
 
   constructor(private http: HttpClient) { 
-    this.http.get<ExerciseGroup[]>('/assets/json/exercises.json')
+    this.http.get<ExerciseGroup[]>('assets/json/exercises.json')
       .subscribe(groups => {
         this.groups$.next(groups);
         this.readExercises(groups[0].data);
@@ -19,7 +19,7 @@ export class ExerciseService {
       /*.pipe(switchMap( data => {
         this.groups$.next(data);
         // at the moment we starting with the first defined group
-        return this.http.get<Exercise[]>('/assets/json/' + data[0].data)
+        return this.http.get<Exercise[]>('assets/json/' + data[0].data)
       }))
       .subscribe(dataExercises => this.exercises$.next(dataExercises)); */
   }
@@ -33,7 +33,7 @@ export class ExerciseService {
   exercises$ : BehaviorSubject<Exercise[]> = new BehaviorSubject<Exercise[]>([]); 
 
   readExercises( data: string ) {
-    this.http.get<Exercise[]>('/assets/json/' + data)
+    this.http.get<Exercise[]>('assets/json/' + data)
       .subscribe(dataExercises => this.exercises$.next(dataExercises));
   }
 
