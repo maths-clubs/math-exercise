@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { ExerciseListComponent } from './exercise-list/exercise-list.component';
 import { ExerciseTestListComponent } from './exercise-test-list/exercise-test-list.component';
 import { StartHelpComponent } from './start-help/start-help.component';
-import { ExercisePrintTestListComponent } from './exercise-print-test-list/exercise-print-test-list.component'
+import { ExercisePrintTestListComponent } from './exercise-print-test-list/exercise-print-test-list.component';
+import { ExercisesComponent } from './exercises/exercises.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ExercisePrintTestListComponent } from './exercise-print-test-list/exerc
     ExerciseListComponent,
     ExerciseTestListComponent,
     StartHelpComponent,
-    ExercisePrintTestListComponent
+    ExercisePrintTestListComponent,
+    ExercisesComponent
   ],
   imports: [
     BrowserModule,
