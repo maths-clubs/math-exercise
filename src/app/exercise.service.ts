@@ -1,52 +1,48 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, first, map, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, filter, first, map, mergeMap } from 'rxjs';
 
-/*
-this one will eventually load exercises from a server.
-*/
 @Injectable({
   providedIn: 'root'
 })
 export class ExerciseService {
 
   constructor(private http: HttpClient) { 
-    this.http.get<ExerciseGroup[]>('assets/json/exercises.json')
+    this.http.get<Group[]>('assets/json/exercises.json')
       .subscribe(groups => {
         this.groups$.next(groups);
-        this.readExercises(groups[0].id);
       });
-      /*.pipe(switchMap( data => {
-        this.groups$.next(data);
-        // at the moment we starting with the first defined group
-        return this.http.get<Exercise[]>('assets/json/' + data[0].data)
-      }))
-      .subscribe(dataExercises => this.exercises$.next(dataExercises)); */
   }
 
-  groups$: BehaviorSubject<ExerciseGroup[]> = new BehaviorSubject<ExerciseGroup[]>([]);
+  groups$: BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>([]);
 
-  getGroups() : Observable<ExerciseGroup[]> {
+  getGroups() : Observable<Group[]> {
     return this.groups$;
   }
   
-  exercises$ : BehaviorSubject<Exercise[]> = new BehaviorSubject<Exercise[]>([]); 
+  UNKNOWN : ExerciseGroup = { group: undefined, exercises: [] };
 
-  readExercises( data: string ) {
-    if (data) {
-      this.http.get<Exercise[]>('assets/json/' + data + ".json")
-        .subscribe(dataExercises => this.exercises$.next(dataExercises));
+  exercises$ : BehaviorSubject<ExerciseGroup> = new BehaviorSubject<ExerciseGroup>(this.UNKNOWN); 
+
+  readExercises( groupId: string ) {
+    if (groupId) {
+      this.getGroups().pipe(
+        map(groups => groups.find( g => g.id ===groupId ) || { id: '', name: 'unkown'} ),
+        mergeMap(g => this.http.get<Exercise[]>('assets/json/' + g.id + ".json")
+                      .pipe(map(e => <ExerciseGroup>{ group: g, exercises: e}))),
+        first()
+      ).subscribe(dataExercises => this.exercises$.next(dataExercises));
     }
   }
 
-  getExercises() : Observable<Exercise[]> {
+  getExercises() : Observable<ExerciseGroup> {
     return this.exercises$;
   }
   
-  getNumExercises(count : number) : Observable<Exercise[]> {
+  getNumExercises(count : number) : Observable<ExerciseGroup> {
     return this.getExercises()
     .pipe(
-      map( exercises => this.getRandom(exercises, count)), 
+      map( eg => <ExerciseGroup>{ group: eg.group, exercises: this.getRandom(eg.exercises, count) } ), 
       first());
   }
 
@@ -73,8 +69,13 @@ export interface Exercise {
   solution: number;
 }
 
-export interface ExerciseGroup {
+export interface Group {
   id: string; 
   name: string;
   descr?: string;
+}
+
+export interface ExerciseGroup {
+  group : Group | undefined;
+  exercises : Exercise[];  
 }
