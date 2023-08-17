@@ -6,3 +6,5 @@ Alle Aufgaben mit Testauswertung über <b>alle Aufgaben</b> starten.
 <p>
 Prüfungsblätter enthalten immer nur eine zufällige Auswahl der Aufgaben. Diese Auswahl kann dann ausgedruck werden.
 </p>
+
+<div *ngFor="let group of groups$ | async">{{ group.id }}</div>

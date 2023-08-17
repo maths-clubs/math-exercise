@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ExerciseGroup, ExerciseService } from './exercise.service';
+import { ExerciseGroup, ExerciseService, Group } from './exercise.service';
 import { Observable, Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -10,9 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  groups : ExerciseGroup[] = [];
+  groups : Group[] = [];
 
-  choosenGroup : ExerciseGroup = { name: '', id: ''};
+  choosenGroup : Group = { name: '', id: ''};
 
   subscriptions : Subscription[] = [];
 

@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ExerciseComponent, Solution } from '../exercise/exercise.component';
-import { Exercise, ExerciseService } from '../exercise.service';
+import { Exercise, ExerciseGroup, ExerciseService } from '../exercise.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
@@ -18,7 +18,7 @@ export class ExerciseTestListComponent implements OnInit {
     this.refresh();
   }
 
-  math_exercises: Exercise[] = [];
+  exerciseGroup: ExerciseGroup = this.exerciseService.UNKNOWN_GROUP;
 
   choosenSolutions: Solution[] = [];
 
@@ -32,7 +32,7 @@ export class ExerciseTestListComponent implements OnInit {
 
   solutionText(eidx: number): string {
     if (this.choosenSolutions[eidx].value) {
-      if (this.math_exercises[eidx].choice) {
+      if (this.exerciseGroup.exercises[eidx].choice) {
         return this.letters[this.choosenSolutions[eidx].value];
       } else return '' + this.choosenSolutions[eidx].value;
     }
@@ -43,7 +43,7 @@ export class ExerciseTestListComponent implements OnInit {
   refresh() {
     this.exerciseService.getNumExercises(4).subscribe(
       exercises => {
-        this.math_exercises = exercises;
+        this.exerciseGroup = exercises;
         this.choosenSolutions = this.initSolutions(4);
         this.showResults = false;
       }

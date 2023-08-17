@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Exercise, ExerciseService } from '../exercise.service';
+import { Exercise, ExerciseGroup, ExerciseService } from '../exercise.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
@@ -17,10 +17,10 @@ export class ExercisePrintTestListComponent implements OnInit {
     this.refresh();
   }
 
-  math_exercises: Exercise[] = [];
+  exerciseGroup: ExerciseGroup = this.exerciseService.UNKNOWN_GROUP;
 
   refresh() {
     this.exerciseService.getNumExercises(4)
-      .subscribe(exercises => this.math_exercises = exercises);
+      .subscribe(exerciseGroup => this.exerciseGroup = exerciseGroup);
   }
 }

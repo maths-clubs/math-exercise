@@ -2,7 +2,7 @@
     <div class="exercise-test-header">Prüfungsblätter drucken <button (click)="refresh()">Aufgaben neu auswählen</button></div>
     <h1>Termumformungen und Gleichungen lösen</h1>
 
-    <div class="exercise-list-item" *ngFor="let exercise of math_exercises; index as eidx">
+    <div class="exercise-list-item" *ngFor="let exercise of exerciseGroup.exercises; index as eidx">
         <div class="exercise-topic">{{ eidx + 1 }}.&nbsp;</div><app-exercise [checkable]="false"
             [exercise]="exercise" [singleCheck]="false"></app-exercise>
     </div>

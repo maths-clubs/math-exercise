@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ExerciseComponent } from '../exercise/exercise.component';
-import { Exercise, ExerciseService } from '../exercise.service';
+import { Exercise, ExerciseGroup, ExerciseService } from '../exercise.service';
 import { Observable, Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ExerciseListComponent implements OnInit {
   
   constructor(private exerciseService: ExerciseService, private route: ActivatedRoute) {
-    this.exercises$ = this.exerciseService.getExercises();
+    this.exerciseGroup$ = this.exerciseService.getExercises();
   }
 
   ngOnInit(): void {
@@ -20,5 +20,5 @@ export class ExerciseListComponent implements OnInit {
     this.exerciseService.readExercises(this.route.snapshot.params["id"]);
   }
 
-  exercises$ : Observable<Exercise[]>;
+  exerciseGroup$ : Observable<ExerciseGroup>;
 }

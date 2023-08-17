@@ -20,9 +20,9 @@ export class ExerciseService {
     return this.groups$;
   }
   
-  UNKNOWN : ExerciseGroup = { group: undefined, exercises: [] };
+  UNKNOWN_GROUP : ExerciseGroup = { group: undefined, exercises: [] };
 
-  exercises$ : BehaviorSubject<ExerciseGroup> = new BehaviorSubject<ExerciseGroup>(this.UNKNOWN); 
+  exercises$ : BehaviorSubject<ExerciseGroup> = new BehaviorSubject<ExerciseGroup>(this.UNKNOWN_GROUP); 
 
   readExercises( groupId: string ) {
     if (groupId) {
