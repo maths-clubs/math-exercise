@@ -7,4 +7,15 @@ Alle Aufgaben mit Testauswertung über <b>alle Aufgaben</b> starten.
 Prüfungsblätter enthalten immer nur eine zufällige Auswahl der Aufgaben. Diese Auswahl kann dann ausgedruck werden.
 </p>
 
-<div *ngFor="let group of groups$ | async">{{ group.id }}</div>
+Wählen Sie aus den folgenden Übungsblättern aus:
+
+<select [(ngModel)]="selectedGroup">
+    <option *ngFor="let group of groups;let i as index" [value]="i">{{ group.name }}</option>
+</select>
+
+{{
+    groups[selectedGroup].descr
+}}
+
+
+

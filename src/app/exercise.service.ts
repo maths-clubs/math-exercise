@@ -20,9 +20,11 @@ export class ExerciseService {
     return this.groups$;
   }
   
-  UNKNOWN_GROUP : ExerciseGroup = { group: undefined, exercises: [] };
+  UNKNOWN_GROUP : Group = { id: 'unknown', name: 'unknown' };
 
-  exercises$ : BehaviorSubject<ExerciseGroup> = new BehaviorSubject<ExerciseGroup>(this.UNKNOWN_GROUP); 
+  UNKNOWN_EXERCISEGROUP : ExerciseGroup = { group: this.UNKNOWN_GROUP, exercises: [] };
+
+  exercises$ : BehaviorSubject<ExerciseGroup> = new BehaviorSubject<ExerciseGroup>(this.UNKNOWN_EXERCISEGROUP); 
 
   readExercises( groupId: string ) {
     if (groupId) {
@@ -76,6 +78,6 @@ export interface Group {
 }
 
 export interface ExerciseGroup {
-  group : Group | undefined;
+  group : Group;
   exercises : Exercise[];  
 }

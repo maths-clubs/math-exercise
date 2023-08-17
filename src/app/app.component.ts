@@ -8,8 +8,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent {
 
+  /* 
   groups : Group[] = [];
 
   choosenGroup : Group = { name: '', id: ''};
@@ -54,6 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.exerciseService.readExercises(this.choosenGroup.id);
     this._router.navigateByUrl('/list/' + this.choosenGroup.id);
   }
+  */
 }
 
 

@@ -17,7 +17,7 @@ export class ExercisePrintTestListComponent implements OnInit {
     this.refresh();
   }
 
-  exerciseGroup: ExerciseGroup = this.exerciseService.UNKNOWN_GROUP;
+  exerciseGroup: ExerciseGroup = this.exerciseService.UNKNOWN_EXERCISEGROUP;
 
   refresh() {
     this.exerciseService.getNumExercises(4)

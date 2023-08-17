@@ -1,15 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ExerciseService, Group } from '../exercise.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-start-help',
   templateUrl: './start-help.component.html',
   styleUrls: ['./start-help.component.scss']
 })
-export class StartHelpComponent {
-  groups$ : Observable<Group[]>;
+export class StartHelpComponent implements OnInit, OnDestroy {
+  groups : Group[] = [];
+  selectedGroup : number = 0;
+  subsink : Subscription[] = [];
+
   constructor(private eg: ExerciseService) {
-    this.groups$ = this.eg.getGroups();
+  }
+
+  ngOnInit(): void {
+    this.subsink.push(this.eg.getGroups().subscribe(groups => this.groups = groups));
+  }
+
+  ngOnDestroy(): void {
+    this.subsink.forEach(s => s.unsubscribe());
   }
 }

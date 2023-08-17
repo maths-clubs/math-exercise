@@ -18,7 +18,7 @@ export class ExerciseTestListComponent implements OnInit {
     this.refresh();
   }
 
-  exerciseGroup: ExerciseGroup = this.exerciseService.UNKNOWN_GROUP;
+  exerciseGroup: ExerciseGroup = this.exerciseService.UNKNOWN_EXERCISEGROUP;
 
   choosenSolutions: Solution[] = [];
 
