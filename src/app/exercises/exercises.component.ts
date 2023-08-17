@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ExerciseService } from '../exercise.service';
 
 @Component({
@@ -6,9 +6,13 @@ import { ExerciseService } from '../exercise.service';
   templateUrl: './exercises.component.html',
   styleUrls: ['./exercises.component.scss']
 })
-export class ExercisesComponent {
-  @Input() 
-  selectedGroup : string = '';
+export class ExercisesComponent implements OnInit {
+  @Input('group') 
+  groupId : string = '';
   
   constructor(private exerciseService: ExerciseService) {  }
+
+  ngOnInit(): void {
+    this.exerciseService.readExercises(this.groupId);
+  }
 }
