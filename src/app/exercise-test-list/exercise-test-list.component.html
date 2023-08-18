@@ -3,25 +3,29 @@
     <h1>Termumformungen und Gleichungen lösen</h1>
 
     <div style="display:flex">
+        <div>
+            <div class="exercise-list-item" style="grid-column:2"
+                *ngFor="let exercise of exerciseGroup.exercises; index as eidx">
+                <div class="exercise-topic">{{ eidx + 1 }}.&nbsp;</div><app-exercise [checkable]="true"
+                    [exercise]="exercise" [singleCheck]="false"
+                    [(choosenSolution)]="choosenSolutions[eidx]"></app-exercise>
+            </div>
+        </div>
         <div class="exercise-solution-list">
-            <button class="exercise-check-button" (click)="checkResults()">{{ showResults?"Schließe":"Prüfe Ergebnisse" }}</button><br/><br/>
+            <button class="exercise-check-button" (click)="checkResults()">{{ showResults?"Schließe":"Prüfe Ergebnisse"
+                }}</button><br /><br />
             <table width="100%" *ngIf="showResults">
                 <th>Nr</th>
                 <th>Lsg</th>
                 <tr *ngFor="let exercise of exerciseGroup.exercises; index as eidx">
                     <td align="center">{{ eidx + 1 }}.</td>
                     <td align="center">
-                        <span [ngClass]="choosenSolutions[eidx].value === exercise.solution?'solution-ok':'solution-error'">{{
-                             solutionText(eidx) }}</span>
+                        <span
+                            [ngClass]="choosenSolutions[eidx].value === exercise.solution?'solution-ok':'solution-error'">{{
+                            solutionText(eidx) }}</span>
                     </td>
                 </tr>
             </table>
-        </div>
-        <div>
-        <div class="exercise-list-item" style="grid-column:2" *ngFor="let exercise of exerciseGroup.exercises; index as eidx">
-            <div class="exercise-topic">{{ eidx + 1 }}.&nbsp;</div><app-exercise [checkable]="true"
-                [exercise]="exercise" [singleCheck]="false" [(choosenSolution)]="choosenSolutions[eidx]"></app-exercise>
-        </div>
         </div>
     </div>
 </div>
