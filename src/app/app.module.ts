@@ -12,6 +12,7 @@ import { ExerciseTestListComponent } from './exercise-test-list/exercise-test-li
 import { StartHelpComponent } from './start-help/start-help.component';
 import { ExercisePrintTestListComponent } from './exercise-print-test-list/exercise-print-test-list.component';
 import { ExercisesComponent } from './exercises/exercises.component'
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ExercisesComponent } from './exercises/exercises.component'
     AppRoutingModule,
     MathjaxModule.forRoot(),
     FormsModule, 
-    HttpClientModule
+    HttpClientModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

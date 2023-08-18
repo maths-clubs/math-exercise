@@ -7,26 +7,26 @@ body {
     margin: 0px;
 }
 
-.app-container {
+.container {
     height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
 
-.header {
+header {
     color:rgb(165, 165, 165); 
     font-size: 20px; 
     background-color: white;
     margin: 5px;
 }
 
-.content {
+main {
     padding-left: 5px;
     padding-right: 5px;
     overflow-y: auto;
 }
 
-.footer {
+footer {
     font-size: 10px;
     margin: 5px;
 }
@@ -46,22 +46,11 @@ body {
     gap: 10px;
     white-space: nowrap;
 
-    /*
-    select {
-        font-size: 14px;
-        color: black;
-        border-style: solid;
-        border-width: 2px;
-        border-radius: 5px;
-        border-color: gray;
-        padding: 2px;
-    } */
-
     a {
         font-size: 14px;
         color: black;
         border-style: solid;
-        border-width: 2px;
+        border-width: 1px;
         border-radius: 5px;
         border-color: gray;
         padding: 2px;
@@ -82,8 +71,6 @@ body {
 }
 
 .exercise-block {
-    padding-left: 10%;
-
     h1 {
         font-size: 25px;
         font-weight: normal;       

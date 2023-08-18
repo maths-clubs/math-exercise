@@ -1,17 +1,5 @@
-<div class="app-container">
-  <div class="header hide-on-print">Könnensbeweise</div>
-  <!-- 
-<div class="header-2">
-  <select (change)="selectExerciseGroup($event)" *ngIf="!queryGroup">
-    <option *ngFor="let group of groups" [value]="group.id">{{ group.name }}</option>
-  </select>
-  <a class="nav-link" routerLink="/list/{{ choosenGroup.id }}">Übung</a><a class="nav-link" routerLink="/test/{{ choosenGroup.id }}">Test</a><a class="nav-link" routerLink="/print-test/{{ choosenGroup.id }}">Prüfungsblatt</a>
-  <hr>
-</div>
-<div class="exercise-block | hide-on-print" *ngIf="choosenGroup">
-<p></p>
-{{ choosenGroup.descr }}<p></p>
-</div>  -->
-  <div class="content"><router-outlet></router-outlet></div>
-  <div class="footer hide-on-print">Copyright 2023 by mg, tw</div>
+<div class="container">
+  <header class="hide-on-print">Könnensbeweise</header>
+  <main><router-outlet></router-outlet></main>
+  <footer class="hide-on-print">Copyright 2023 by mg, tw</footer>
 </div>
