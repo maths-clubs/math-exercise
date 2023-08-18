@@ -74,6 +74,8 @@ export interface Exercise {
 }
 
 export interface Group {
+  class?: number; 
+  level?: number; // Anforderungsebene 1 - 3 
   id: string; 
   name: string;
   descr?: string;
