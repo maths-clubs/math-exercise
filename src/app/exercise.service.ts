@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, filter, first, map, mergeMap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, filter, first, from, map, mergeMap, of, switchMap, take, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +9,7 @@ export class ExerciseService {
 
   constructor(private http: HttpClient) { 
     this.http.get<Group[]>('assets/json/exercises.json')
-      .subscribe(groups => {
-        this.groups$.next(groups);
-      });
+      .subscribe(groups => this.groups$.next(groups));
   }
 
   groups$: BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>([]);
@@ -29,11 +27,15 @@ export class ExerciseService {
   readExercises( groupId: string ) {
     if (groupId) {
       this.getGroups().pipe(
-        map(groups => groups.find( g => g.id ===groupId ) || { id: '', name: 'unkown'} ),
-        mergeMap(g => this.http.get<Exercise[]>('assets/json/' + g.id + ".json")
-                      .pipe(map(e => <ExerciseGroup>{ group: g, exercises: e}))),
-        first()
-      ).subscribe(dataExercises => this.exercises$.next(dataExercises));
+        mergeMap(groups => from(groups)),
+        filter(group => group.id === groupId),
+        mergeMap(grp => this.http.get<Exercise[]>('assets/json/' + grp.id + '.json').pipe(
+          map(e => <ExerciseGroup>{ group: grp, exercises: e})
+        )),
+        first(),
+      ).subscribe(
+        dataExercises => this.exercises$.next(dataExercises)
+      );
     }
   }
 

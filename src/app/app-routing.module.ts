@@ -7,7 +7,7 @@ import { ExercisePrintTestListComponent } from './exercise-print-test-list/exerc
 import { ExercisesComponent } from './exercises/exercises.component';
 
 const routes: Routes = [
-  { path: ':group', component: ExercisesComponent, 
+  { path: 'exercises/:group', component: ExercisesComponent, 
     children: [
       { path: 'list', component: ExerciseListComponent },
       { path: 'print-test', component: ExercisePrintTestListComponent },

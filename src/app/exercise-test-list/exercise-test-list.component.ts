@@ -1,8 +1,7 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { ExerciseComponent, Solution } from '../exercise/exercise.component';
-import { Exercise, ExerciseGroup, ExerciseService } from '../exercise.service';
-import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Solution } from '../exercise/exercise.component';
+import { ExerciseGroup, ExerciseService } from '../exercise.service';
+
 
 @Component({
   selector: 'app-exercise-test-list',
@@ -10,8 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./exercise-test-list.component.scss']
 })
 export class ExerciseTestListComponent implements OnInit {
-  constructor(private exerciseService: ExerciseService, private route: ActivatedRoute) {
-    this.exerciseService.readExercises(route.snapshot.params['id']);
+  constructor(private exerciseService: ExerciseService) {
   }
   
   ngOnInit(): void {

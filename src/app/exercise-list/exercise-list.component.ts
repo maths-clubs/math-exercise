@@ -9,15 +9,10 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './exercise-list.component.html',
   styleUrls: ['./exercise-list.component.scss']
 })
-export class ExerciseListComponent implements OnInit {
+export class ExerciseListComponent {
   
   constructor(private exerciseService: ExerciseService, private route: ActivatedRoute) {
     this.exerciseGroup$ = this.exerciseService.getExercises();
-  }
-
-  ngOnInit(): void {
-    console.log(this.route.snapshot.params["id"]);
-    this.exerciseService.readExercises(this.route.snapshot.params["id"]);
   }
 
   exerciseGroup$ : Observable<ExerciseGroup>;

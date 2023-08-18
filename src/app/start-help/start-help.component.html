@@ -7,7 +7,7 @@ Wählen Sie aus den folgenden Übungsblättern aus:
 <select [(ngModel)]="selectedGroup">
     <option *ngFor="let group of groups;let i = index" [value]="i">{{ group.name }}</option>
 </select>
-<button routerLink="{{ groups[selectedGroup].id }}">Starten</button>
+<button routerLink="exercises/{{ groups[selectedGroup].id }}">Starten</button>
 </div>
 
 <br />
