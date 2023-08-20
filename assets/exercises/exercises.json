@@ -1,4 +1,6 @@
 [
+    {"id": "08_01_terme", "name":"Könnensbeweis 1", "class": 8, "level": 1, "logo": "08_01_terme.jpg",
+        "descr":"Das sind einige Aufgaben für das Üben von Termumformungen und Gleichungen." },
     {"id": "exercise_class_8_1", "name":"Aufgaben Klasse 8 Nr. 1", "class": 6, "level": 1, 
         "descr":"Das sind einige Aufgaben für das Üben von Termumformungen und Gleichungen." }, 
     {"id": "exercise_class_8_2", "name":"Aufgaben Klasse 8 Nr. 2", "class": 7, "level": 2, 
