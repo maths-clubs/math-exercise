@@ -1,5 +1,5 @@
 <div class="exercise-block">
-    <div class="exercise-test-header">Test <button (click)="refresh()">Aufgaben neu auswählen</button></div>
+    <div class="exercise-test-header">Test <button class="button-with-fade" (click)="refresh()">Aufgaben neu auswählen</button></div>
     <h1>Termumformungen und Gleichungen lösen</h1>
 
     <div style="display:flex">
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="exercise-solution-list">
-            <button class="exercise-check-button" (click)="checkResults()">{{ showResults?"Schließe":"Prüfe Ergebnisse"
+            <button class="button-with-fade" (click)="checkResults()">{{ showResults?"Schließe":"Prüfe Ergebnisse"
                 }}</button><br /><br />
             <table width="100%" *ngIf="showResults">
                 <th>Nr</th>

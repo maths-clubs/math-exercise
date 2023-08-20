@@ -14,7 +14,8 @@ const routes: Routes = [
       { path: 'test', component: ExerciseTestListComponent, data: { checkable : true} },
     ]
   },
-  { path: '**', component: StartHelpComponent }
+  { path: '', component: StartHelpComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

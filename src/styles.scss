@@ -23,7 +23,7 @@ header {
 main {
     padding-left: 5px;
     padding-right: 5px;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 footer {
@@ -35,7 +35,7 @@ footer {
     font-size: 14px;
 }
 
-.header-2 {
+nav {
     color:rgb(165, 165, 165); 
     padding-left: 10px; 
     padding-top: 2px;
@@ -45,29 +45,6 @@ footer {
     align-items: center;
     gap: 10px;
     white-space: nowrap;
-
-    a {
-        font-size: 14px;
-        color: black;
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 5px;
-        border-color: gray;
-        padding: 2px;
-        background-color: rgb(207, 207, 207);
-        transition-duration: 200ms;
-        transition-property: background-color;
-    }
-
-    a:hover {
-        background-color: blue;
-        color: white;
-    }
-}
-
-.nav-link {
-    font-size: 14px;
-    font-weight: bold;
 }
 
 .exercise-block {
@@ -123,15 +100,17 @@ footer {
     margin-bottom: 10px;
 }
 
-.exercise-check-button {
+.button-with-fade {
+    border-width: 1px;
     border-radius: 5px;
-    padding: 5px;
+    vertical-align: middle;
+    padding: 3px;
     transition-duration: 200ms;
     transition-property: background-color;
 }
 
-.exercise-check-button:hover {
-    background-color: blue;
+.button-with-fade:hover {
+    background-color: darkgray;
     color: white;
 }
 
@@ -147,19 +126,6 @@ footer {
 
 .exercise-test-header {
     font-size: 30px;
-
-    button {
-        vertical-align: middle;
-        border-radius: 5px;
-        padding: 5px;
-        transition-duration: 200ms;
-        transition-property: background-color;
-    }
-
-    button:hover {
-        background-color: blue;
-        color: white;
-    }
 }
 
 @media print {
