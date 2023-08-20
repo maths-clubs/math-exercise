@@ -1,21 +1,24 @@
 <div>
-<br>
-Wählt aus den folgenden Übungsblättern aus:
+    <br>
+    Wählt aus den folgenden Übungsblättern aus:
 
-<p>
-<div style="display: flex; gap: 10px"> 
-<select [(ngModel)]="selectedGroup">
-    <option *ngFor="let group of groups;let i = index" [value]="i">{{ group.name }}</option>
-</select>
-<button routerLink="exercises/{{ groups[selectedGroup].id }}/list">Starten</button>
-</div>
+    <p>
+    <div style="display: flex; gap: 10px">
+        <select [(ngModel)]="selectedGroup">
+            <option *ngFor="let group of groups;let i = index" [value]="i">{{ group.name }}</option>
+        </select>
+        <button routerLink="exercises/{{ groups[selectedGroup].id }}/list">Starten</button>
+    </div>
 
-<br />
-<div class="group-description"> 
-{{
-    groups[selectedGroup].descr
-}}
-
-<qrcode qrdata="{{ actualurl }}/exercises/{{ groups[selectedGroup].id }}/list" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
-</div>
+    <br />
+    <div class="group-description">
+        {{
+        groups[selectedGroup].descr
+        }}
+        <qrcode qrdata="{{ actualurl }}/exercises/{{ groups[selectedGroup].id }}/list" [width]="256"
+            [errorCorrectionLevel]="'M'"></qrcode>
+        <br/>
+        <br/>
+        <img *ngIf="groups[selectedGroup].logo" src="assets/exercises/{{ groups[selectedGroup].logo }}" />
+    </div>
 </div>

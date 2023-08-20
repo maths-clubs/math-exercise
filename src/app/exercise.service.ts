@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable, Subject, filter, first, from, map, mergeMa
 export class ExerciseService {
 
   constructor(private http: HttpClient) { 
-    this.http.get<Group[]>('assets/json/exercises.json')
+    this.http.get<Group[]>('assets/exercises/exercises.json')
       .subscribe(groups => this.groups$.next(groups));
   }
 
@@ -29,7 +29,7 @@ export class ExerciseService {
       this.getGroups().pipe(
         mergeMap(groups => from(groups)),
         filter(group => group.id === groupId),
-        mergeMap(grp => this.http.get<Exercise[]>('assets/json/' + grp.id + '.json').pipe(
+        mergeMap(grp => this.http.get<Exercise[]>('assets/exercises/' + grp.id + '.json').pipe(
           map(e => <ExerciseGroup>{ group: grp, exercises: e})
         )),
         first(),
@@ -79,6 +79,7 @@ export interface Group {
   id: string; 
   name: string;
   descr?: string;
+  logo?: string;
 }
 
 export interface ExerciseGroup {
