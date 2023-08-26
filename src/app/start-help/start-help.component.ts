@@ -9,7 +9,8 @@ import { Subscription } from 'rxjs';
 })
 export class StartHelpComponent implements OnInit, OnDestroy {
   groups : Group[] = [];
-  selectedGroup : number = 0;
+  selectedClass : number = 0;
+  selectedGroupId : string = '';
   subsink : Subscription[] = [];
   actualurl : string; 
 
@@ -23,5 +24,21 @@ export class StartHelpComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subsink.forEach(s => s.unsubscribe());
+  }
+
+  getFilteredGroups() : Group[] {
+    return this.groups.filter(g => g.class == this.selectedClass || this.selectedClass == 0)
+  }
+
+  getSelectedGroup() : Group {
+    return this.groups.find(g => g.id === this.selectedGroupId) || this.eg.UNKNOWN_GROUP;
+  }
+
+  getClasses() : number[] {
+    return this.groups
+      .map(g => g.class || 0)
+      .filter(c => c > 0)
+      .filter((value, index, self) => self.indexOf(value) === index)
+      .sort();
   }
 }

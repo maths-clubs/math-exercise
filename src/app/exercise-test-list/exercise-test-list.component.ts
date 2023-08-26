@@ -39,7 +39,7 @@ export class ExerciseTestListComponent implements OnInit {
   }
 
   refresh() {
-    this.exerciseService.getNumExercises(4).subscribe(
+    this.exerciseService.getNumExercises().subscribe(
       exercises => {
         this.exerciseGroup = exercises;
         this.choosenSolutions = this.initSolutions(4);

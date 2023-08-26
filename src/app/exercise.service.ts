@@ -43,10 +43,10 @@ export class ExerciseService {
     return this.exercises$;
   }
   
-  getNumExercises(count : number) : Observable<ExerciseGroup> {
+  getNumExercises() : Observable<ExerciseGroup> {
     return this.getExercises()
     .pipe(
-      map( eg => <ExerciseGroup>{ group: eg.group, exercises: this.getRandom(eg.exercises, count) } ), 
+      map( eg => <ExerciseGroup>{ group: eg.group, exercises: this.getRandom(eg.exercises, eg.group.testExercises || 4) } ), 
       first());
   }
 
@@ -80,6 +80,7 @@ export interface Group {
   name: string;
   descr?: string;
   logo?: string;
+  testExercises?: number;
 }
 
 export interface ExerciseGroup {

@@ -4,21 +4,24 @@
 
     <p>
     <div style="display: flex; gap: 10px">
-        <select [(ngModel)]="selectedGroup">
-            <option *ngFor="let group of groups;let i = index" [value]="i">{{ group.name }}</option>
+        <select [(ngModel)]="selectedClass">
+            <option *ngFor="let class of getClasses()" [value]="class">Klasse {{ class }}</option>
         </select>
-        <button routerLink="exercises/{{ groups[selectedGroup].id }}/list">Starten</button>
+        <select [(ngModel)]="selectedGroupId">
+            <option *ngFor="let group of getFilteredGroups()" [value]="group.id">{{ group.name }}</option>
+        </select>
+        <button routerLink="exercises/{{ selectedGroupId }}/list">Starten</button>
     </div>
 
     <br />
-    <div class="group-description">
+    <div class="group-description" *ngIf="getSelectedGroup() as group">
         {{
-        groups[selectedGroup].descr
+        group.descr
         }}
-        <qrcode qrdata="{{ actualurl }}/exercises/{{ groups[selectedGroup].id }}/list" [width]="256"
+        <qrcode qrdata="{{ actualurl }}/exercises/{{ selectedGroupId }}/list" [width]="256"
             [errorCorrectionLevel]="'M'"></qrcode>
         <br/>
         <br/>
-        <img *ngIf="groups[selectedGroup].logo" src="assets/exercises/{{ groups[selectedGroup].logo }}" />
+        <img *ngIf="group.logo" src="assets/exercises/{{ group.logo }}" />
     </div>
 </div>
