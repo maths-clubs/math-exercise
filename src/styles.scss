@@ -23,7 +23,6 @@ header {
 main {
     padding-left: 5px;
     padding-right: 5px;
-    overflow: auto;
 }
 
 footer {
@@ -101,6 +100,24 @@ nav {
 }
 
 .button-with-fade {
+    border: 1px, solid, transparent;
+    border-radius: 0 25px 25px 0;
+    vertical-align: middle;
+    padding: 5px;
+    transition-duration: 200ms;
+    transition-property: background-color;
+    color: #383838;
+    border-color: #c4c4c5;
+    background-color: #c4c4c5;
+}
+
+.button-with-fade:hover {
+    background-color: darkgray;
+    color: white;
+}
+
+/*
+.button-with-fade {
     border-width: 1px;
     border-radius: 5px;
     vertical-align: middle;
@@ -112,7 +129,7 @@ nav {
 .button-with-fade:hover {
     background-color: darkgray;
     color: white;
-}
+}*/
 
 .solution-ok {
     color:green;

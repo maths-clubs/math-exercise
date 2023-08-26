@@ -1,1 +1,22 @@
+.exercises-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    overflow: auto;
+}
 
+nav {
+    display: flexbox;
+    flex-direction: column;
+    justify-content: left;
+}
+
+@media only screen and (max-width: 600px) {
+    nav {
+        flex-direction: row;
+    }
+
+    .exercises-container {
+        grid-template-columns: none;
+    }
+}
