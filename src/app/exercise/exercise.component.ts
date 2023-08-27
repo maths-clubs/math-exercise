@@ -12,6 +12,7 @@ export class ExerciseComponent {
   @Input() singleCheck: boolean = true;
 
   resultText: string = "";
+  resultStyle: string = "";
 
   @Input() 
   choosenSolution: Solution = { value: NaN };
@@ -24,8 +25,10 @@ export class ExerciseComponent {
   checkSolution() {
     if (this.choosenSolution.value == this.exercise.solution ) {
       this.resultText = "Richtig";
+      this.resultStyle = "color: green;"
     } else {
       this.resultText = "Falsch";
+      this.resultStyle = "color: red;"
     }
   }
 }

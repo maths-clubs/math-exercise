@@ -19,7 +19,7 @@
     <div [hidden]="!checkable || !singleCheck">
       <br />
       <button class="button-with-fade">Prüfen</button>
-      <div class="exercise-result">{{ resultText }}</div>
+      <div class="exercise-result" [style]="resultStyle">{{ resultText }}</div>
     </div>
   </form>
 </div>

@@ -34,13 +34,12 @@ footer {
     font-size: 14px;
 }
 
-nav {
+.nav {
     color:rgb(165, 165, 165); 
     padding-left: 10px; 
     padding-top: 2px;
     background-color: white;
     display: flex;
-    flex-wrap: nowrap;
     align-items: center;
     gap: 10px;
     white-space: nowrap;
@@ -107,8 +106,8 @@ nav {
     transition-duration: 200ms;
     transition-property: background-color;
     color: #383838;
-    border-color: #c4c4c5;
-    background-color: #c4c4c5;
+    border-color: #eeeeee;
+    background-color: #eeeeee;
 }
 
 .button-with-fade:hover {

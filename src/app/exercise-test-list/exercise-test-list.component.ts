@@ -29,13 +29,12 @@ export class ExerciseTestListComponent implements OnInit {
   letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   solutionText(eidx: number): string {
-    if (this.choosenSolutions[eidx].value) {
-      if (this.exerciseGroup.exercises[eidx].choice) {
+    if (this.choosenSolutions[eidx].value != undefined && !Number.isNaN(this.choosenSolutions[eidx].value)) {
+      if (this.exerciseGroup.exercises[eidx].choice != undefined) {
         return this.letters[this.choosenSolutions[eidx].value];
       } else return '' + this.choosenSolutions[eidx].value;
     }
     else return '-';
-    return this.choosenSolutions[eidx].value ? '' + this.choosenSolutions[eidx].value : '-';
   }
 
   refresh() {

@@ -9,11 +9,22 @@ nav {
     display: flexbox;
     flex-direction: column;
     justify-content: left;
+
+    button {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
     nav {
         flex-direction: row;
+        button {
+            width: unset;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
     }
 
     .exercises-container {
