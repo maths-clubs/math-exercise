@@ -26,12 +26,18 @@ main {
 }
 
 footer {
-    font-size: 10px;
+    font-size: 1rem;
     margin: 5px;
 }
 
 .group-description {
-    font-size: 14px;
+    display: grid;
+    grid-template-columns: 200px 200px 1fr;
+    font-size: 1.1rem;
+}
+
+.group-logo {
+    max-width:200px;
 }
 
 .nav {
@@ -47,7 +53,7 @@ footer {
 
 .exercise-block {
     h1 {
-        font-size: 25px;
+        font-size: 2.5rem;
         font-weight: normal;       
     }
 }
@@ -79,18 +85,18 @@ footer {
 }
 
 .exercise-topic {
-    font-size: 20px;
+    font-size: 2rem;
 }
 
 .exercise-result {
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: bold;
     display: inline;
     margin-left: 20px;
 }
 
 .exercise-type-hint {
-    font-size: 14px;
+    font-size: 1.4rem;
     color: gray;
 }
 
@@ -114,21 +120,6 @@ footer {
     background-color: darkgray;
     color: white;
 }
-
-/*
-.button-with-fade {
-    border-width: 1px;
-    border-radius: 5px;
-    vertical-align: middle;
-    padding: 3px;
-    transition-duration: 200ms;
-    transition-property: background-color;
-}
-
-.button-with-fade:hover {
-    background-color: darkgray;
-    color: white;
-}*/
 
 .solution-ok {
     color:green;

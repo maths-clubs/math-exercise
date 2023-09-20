@@ -3,9 +3,12 @@
     Wählt aus den folgenden Übungsblättern aus:
 
     <p>
-    <div style="display: flex; gap: 10px">
+    <div style="display: flex; gap: 10px" class="hide-on-print">
         <select [(ngModel)]="selectedClass">
             <option *ngFor="let class of getClasses()" [value]="class">Klasse {{ class }}</option>
+        </select>
+        <select [(ngModel)]="selectedLevel">
+            <option *ngFor="let level of getLevels()" [value]="level">Anforderungsebene {{ level }}</option>
         </select>
         <select [(ngModel)]="selectedGroupId">
             <option *ngFor="let group of getFilteredGroups()" [value]="group.id">{{ group.name }}</option>
@@ -14,14 +17,12 @@
     </div>
 
     <br />
-    <div class="group-description" *ngIf="getSelectedGroup() as group">
-        {{
-        group.descr
-        }}
-        <qrcode qrdata="{{ actualurl }}/exercises/{{ selectedGroupId }}/list" [width]="256"
-            [errorCorrectionLevel]="'M'"></qrcode>
-        <br/>
-        <br/>
-        <img *ngIf="group.logo" src="assets/exercises/{{ group.logo }}" />
+    <div *ngIf="selectedClass != 0">
+        <div class="group-description" *ngFor="let group of getFilteredGroups()">
+            <div><img class="group-logo" *ngIf="group.logo" src="assets/exercises/{{ group.logo }}" /></div>
+            <qrcode qrdata="{{ actualurl }}/exercises/{{ selectedGroupId }}/list" [width]="200"
+                [errorCorrectionLevel]="'M'"></qrcode>
+            <div style="padding: 10px">{{ group.descr }}</div>
+        </div>
     </div>
 </div>

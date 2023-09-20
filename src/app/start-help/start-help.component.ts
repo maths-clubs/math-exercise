@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 export class StartHelpComponent implements OnInit, OnDestroy {
   groups : Group[] = [];
   selectedClass : number = 0;
+  selectedLevel : number = 0;
   selectedGroupId : string = '';
   subsink : Subscription[] = [];
   actualurl : string; 
@@ -27,7 +28,10 @@ export class StartHelpComponent implements OnInit, OnDestroy {
   }
 
   getFilteredGroups() : Group[] {
-    return this.groups.filter(g => g.class == this.selectedClass || this.selectedClass == 0)
+    return this.groups
+      .filter(g => g.class == this.selectedClass || this.selectedClass == 0)
+      .filter(g => g.level == this.selectedLevel || this.selectedLevel == 0)
+      .sort((g1, g2) => g1.name.localeCompare(g2.name));
   }
 
   getSelectedGroup() : Group {
@@ -40,5 +44,15 @@ export class StartHelpComponent implements OnInit, OnDestroy {
       .filter(c => c > 0)
       .filter((value, index, self) => self.indexOf(value) === index)
       .sort();
+  }
+
+  getLevels() : number[] {
+    let levels =  this.groups
+      .filter(g => g.class == this.selectedClass || this.selectedClass == 0)
+      .map(g => g.level || 0)
+      .filter(level => level > 0)
+      .filter((value, index, self) => self.indexOf(value) === index)
+      .sort();
+    return levels;
   }
 }
