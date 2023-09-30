@@ -19,10 +19,14 @@
     <br />
     <div *ngIf="selectedClass != 0">
         <div class="group-description" *ngFor="let group of getFilteredGroups()">
-            <div><img class="group-logo" *ngIf="group.logo" src="assets/exercises/{{ group.logo }}" /></div>
-            <qrcode qrdata="{{ actualurl }}/exercises/{{ selectedGroupId }}/list" [width]="200"
+            <div><img style="max-height:100px;" *ngIf="group.logo" src="assets/exercises/{{ group.logo }}" /></div>
+            <qrcode [margin]="0" qrdata="{{ actualurl }}/exercises/{{ selectedGroupId }}/list" [width]="100"
                 [errorCorrectionLevel]="'M'"></qrcode>
-            <div style="padding: 10px">{{ group.descr }}</div>
+            <div>
+                <b>{{ group.name }}</b> (Anforderungsebene {{ group.level }})
+                <br/>
+                {{ group.descr }}
+            </div>
         </div>
     </div>
 </div>

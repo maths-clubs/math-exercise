@@ -1,7 +1,10 @@
 <div class="exercise-block">
     <div class="exercise-test-header">Test <button class="button-with-fade" (click)="refresh()">Aufgaben neu auswählen</button></div>
-    <h1>Termumformungen und Gleichungen lösen</h1>
-
+    <br/>
+    <span class="exercise-title">{{ exerciseGroup.group.name }}</span> (Anforderungsebene {{ exerciseGroup.group.level }})
+    <br/>
+    <br/>
+    {{ exerciseGroup.group.descr}}
     <div style="display:flex">
         <div>
             <div class="exercise-list-item" style="grid-column:2"

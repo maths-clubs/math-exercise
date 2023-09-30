@@ -32,12 +32,12 @@ footer {
 
 .group-description {
     display: grid;
-    grid-template-columns: 200px 200px 1fr;
+    grid-template-columns: 110px 110px 1fr;
     font-size: 1.1rem;
-}
-
-.group-logo {
-    max-width:200px;
+    border-style: solid;
+    border-width: 1px;
+    margin: 5px;
+    padding: 5px;
 }
 
 .nav {
@@ -53,7 +53,7 @@ footer {
 
 .exercise-block {
     h1 {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         font-weight: normal;       
     }
 }
@@ -85,7 +85,12 @@ footer {
 }
 
 .exercise-topic {
-    font-size: 2rem;
+    font-size: 1.2rem;
+    font-style: bold;
+}
+
+.exercise-title {
+    font-size: 1.3rem;
 }
 
 .exercise-result {
@@ -96,7 +101,7 @@ footer {
 }
 
 .exercise-type-hint {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: gray;
 }
 
