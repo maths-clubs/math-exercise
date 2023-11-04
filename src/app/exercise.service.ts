@@ -24,17 +24,6 @@ export class ExerciseService {
 
   exercises$ : BehaviorSubject<ExerciseGroup> = new BehaviorSubject<ExerciseGroup>(this.UNKNOWN_EXERCISEGROUP); 
 
-  /*
-  - Filter als Lambda
-  - Observable als Funktionsrückgabe
-
-  für neue Funktion readExercises mit Lambda - Parameter. 
-  Auf Seite wird dann alles durch eine async - pipe geleitet. 
-
-  Vereinfachung hier muss nachgepflegt werden. 
-  Caching wird noch nicht angedacht bzw. arbeitet rein über die BehaviourSubjects.
-  */
-
   readExercisesByFilter( groupFilter: (group: Group) => boolean) : Observable<ExerciseGroup> {
     return this.getGroups().pipe(
       first(),
@@ -48,22 +37,8 @@ export class ExerciseService {
 
   readExercises( groupId: string ) {
     if (groupId) {
-      /* this.getGroups().pipe(
-        mergeMap(groups => from(groups)),
-        filter(group => group.id === groupId),
-        mergeMap(grp => this.http.get<Exercise[]>('assets/exercises/' + grp.id + '.json').pipe(
-          map(e => <ExerciseGroup>{ group: grp, exercises: e})
-        )),
-        first(),
-      ).subscribe(
-        dataExercises => this.exercises$.next(dataExercises)
-      );*/
-      this.readExercisesByFilter ( group => group.id ===groupId ).subscribe({
-        next: dataExercises => this.exercises$.next(dataExercises),
-        complete: () => console.log("completed"),
-        error: () => console.log("error")
-      }
-          
+      this.readExercisesByFilter ( group => group.id ===groupId ).subscribe(
+        dataExercises => this.exercises$.next(dataExercises)  
       );
     }
   }

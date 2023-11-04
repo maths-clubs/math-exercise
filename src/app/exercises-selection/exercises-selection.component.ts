@@ -9,24 +9,18 @@ import { Observable, Subject, concatMap, filter, first, from, map, mergeAll, mer
   styleUrls: ['./exercises-selection.component.scss']
 })
 export class ExercisesSelectionComponent {
-  exerciseGroup$ : Observable<ExerciseGroup> = of( this.exerciseService.UNKNOWN_EXERCISEGROUP );
+  exerciseGroup$ : Observable<ExerciseGroup[]>; 
 
   constructor(private exerciseService: ExerciseService, private route: ActivatedRoute) {
-    this.route.params.pipe(
-      map( params => <Selection>{ selectedClass: params['selectedClass'], selectedLevel: params['selectedLevel'] } )
-    ).subscribe(
-      selection => {
-        this.exerciseGroup$ = this.exerciseService.readExercisesByFilter( 
-            g => g.class == selection.selectedClass 
-            && g.level == selection.selectedLevel ).pipe( 
-          map ( exerciseGroups => this.exerciseService.getNumExercisesForGroup( exerciseGroups, 2) ),
-        );
-        this.exerciseGroup$.subscribe({
-          next: (v) => console.log(v),
-          error: (e) => console.error(e),
-          complete: () => console.info('complete') 
-        });
-      });
+    this.exerciseGroup$ = this.route.params.pipe(
+      map( params => <Selection>{ selectedClass: params['selectedClass'], selectedLevel: params['selectedLevel'] } ),
+      first(), 
+      mergeMap( selection =>  this.exerciseService.readExercisesByFilter( 
+        g => g.class == selection.selectedClass 
+        && g.level == selection.selectedLevel )),
+        map ( exerciseGroups => this.exerciseService.getNumExercisesForGroup( exerciseGroups, 2) ),
+        toArray()
+    );
   }
 }
 

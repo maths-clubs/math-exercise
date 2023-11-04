@@ -1,6 +1,3 @@
-test
-
-<!-- 
 <div class="exercise-block" *ngFor="let exerciseGroup of exerciseGroup$ | async">
     <div class="exercise-test-header">Übungen</div>
     <br/>
@@ -9,7 +6,6 @@ test
     <br/>
     {{ exerciseGroup.group.descr}}
     <div class="exercise-list-item" *ngFor="let exercise of exerciseGroup.exercises; index as eidx">
-          <div class="exercise-topic">{{ eidx + 1 }}.&nbsp;</div><app-exercise [exercise]="exercise"></app-exercise>
+          <div class="exercise-topic">{{ eidx + 1 }}.&nbsp;</div><app-exercise [exercise]="exercise" [checkable]="false" [singleCheck]="false"></app-exercise>
     </div> 
  </div>
- -->
