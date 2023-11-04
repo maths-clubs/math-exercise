@@ -14,11 +14,12 @@
             <option *ngFor="let group of getFilteredGroups()" [value]="group.id">{{ group.name }}</option>
         </select>
         <button routerLink="exercises/{{ selectedGroupId }}/list">Starten</button>
+        <button [disabled]="!selectedClass || !selectedLevel" routerLink="print-selection/{{ selectedClass }}/{{ selectedLevel }}">Jahresprüfungsblatt</button>
     </div>
 
     <br />
     <div *ngIf="selectedClass != 0">
-        <div class="group-description" *ngFor="let group of getFilteredGroups()">
+        <div class="group-description" *ngFor="let group of getFilteredGroups()" routerLink="exercises/{{ group.id }}/list">
             <div><img style="max-height:100px;" *ngIf="group.logo" src="assets/exercises/{{ group.logo }}" /></div>
             <qrcode [margin]="0" qrdata="{{ actualurl }}/exercises/{{ selectedGroupId }}/list" [width]="100"
                 [errorCorrectionLevel]="'M'"></qrcode>

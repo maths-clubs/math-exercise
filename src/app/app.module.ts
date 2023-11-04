@@ -13,6 +13,7 @@ import { StartHelpComponent } from './start-help/start-help.component';
 import { ExercisePrintTestListComponent } from './exercise-print-test-list/exercise-print-test-list.component';
 import { ExercisesComponent } from './exercises/exercises.component'
 import { QRCodeModule } from 'angularx-qrcode';
+import { ExercisesSelectionComponent } from './exercises-selection/exercises-selection.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     ExerciseTestListComponent,
     StartHelpComponent,
     ExercisePrintTestListComponent,
-    ExercisesComponent
+    ExercisesComponent,
+    ExercisesSelectionComponent
   ],
   imports: [
     BrowserModule,
