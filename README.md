@@ -2,7 +2,7 @@
 
 ## Configuration files
 
-configuration of groups
+Configuration of **groups** is within the file **exercises.json**.
 
 ```json
 [
@@ -13,7 +13,17 @@ configuration of groups
 ]
 ```
 
-configuration of exercises for a group
+A group is a special described collection of exercises.
+
+|Group Attribute|Description|
+|-------------|----------|
+|id|unique id of this group|
+|name|name of group|
+|class|school class|
+|level|difficulty of this groups exercises, normally there are three levels 1 2 3|
+|logo|additional logo image right from the asset folder|
+
+Configuration of **exercises** for a group. This is loaded from the file identical to the corresponding groups id: **<group-id>.json**.
 
 ```json
 [
@@ -31,6 +41,14 @@ configuration of exercises for a group
     {"topic": "Löse die Gleichung und gib den Wert von x an.", "text":"$5(x + 11) = 10(x - 3)$", "solution":5 }
   ]
 ```
+
+|Exercise Attribute|Description|
+|-------------|----------|
+|topic|kind of the exercise topic or header| 
+|text|The exercises text. It supports MathJax syntax between $ ... $ in this text.|
+|choice|A comma list of multiple choice solutions.|
+|solution|The index of the right choice attribute or the correct solution.|
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
 
