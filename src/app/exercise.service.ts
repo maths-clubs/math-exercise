@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, filter, first, from, map, mergeMap, of, switchMap, take, tap } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject, filter, first, from, map, mergeMap, of, switchMap, take, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class ExerciseService {
       .subscribe(groups => this.groups$.next(groups));
   }
 
-  groups$: BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>([]);
+  groups$: Subject<Group[]> = new ReplaySubject<Group[]>();
 
   getGroups() : Observable<Group[]> {
     return this.groups$;
@@ -26,6 +26,7 @@ export class ExerciseService {
 
   readExercisesByFilter( groupFilter: (group: Group) => boolean) : Observable<ExerciseGroup> {
     return this.getGroups().pipe(
+      first(),
       mergeMap(groups => from(groups)),
       filter(group => groupFilter(group)),
       mergeMap(group => this.http.get<Exercise[]>('assets/exercises/' + group.id + '.json').pipe(
