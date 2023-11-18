@@ -1,0 +1,19 @@
+[
+{"topic": "Multipliziere aus.", "text":"$6(5x-3)$", "choice":[ "$30x - 3$", "$30x - 18$", "$x - 18$" ], "solution":1 },
+{"topic": "Multipliziere aus.", "text":"$4a(6a-3)$", "choice":[ "$24a^2-12a$", "$24a-12a$", "$24a^2-7a$" ], "solution":0 },
+{"topic": "Multipliziere aus.", "text":"$3x(7+y)$", "choice":[ "$37x+y$", "$3x+3xy$", "$21x+3xy$" ], "solution":2 },
+{"topic": "Multipliziere aus.", "text":"$(-3a+4) (-5x)$", "choice":[ "$15ax+20x$", "$15ax-20x$", "$15ax-5x$" ], "solution":1 },
+{"topic": "Klammere aus. Wähle den Faktor so groß wie möglich.", "text":"$20x+8y$", "choice":[ "$2(10x+8y)$", "$20(x+8y)$", "$2(10x+4y)$" ], "solution":2 },
+{"topic": "Klammere aus. Wähle den Faktor so groß wie möglich.", "text":"$24x+18xy$", "choice":[ "$6x(4+6y)$", "$6x(4+3y)$", "$6x(4+3xy)$" ], "solution":1 },
+{"topic": "Klammere aus. Wähle den Faktor so groß wie möglich.", "text":"$6y^2-40xy$", "choice":[ "$2y(3y+20x)$", "$2y(3y-20x)$", "$6y(y-7x)$" ], "solution":1 },
+{"topic": "Klammere aus. Wähle den Faktor so groß wie möglich.", "text":"$28x+30x^2$", "choice":[ "$2x(14x+15x)$", "$2x(14-15x)$", "$2x(14+15x)$" ], "solution":2 },
+
+{"topic": "Multipliziere aus.", "text":"$(a+4)(b+2)$", "choice":[ "$ab+8$", "$ab+4b+8$", "$2a+ab+4b+8$" ], "solution":2 },
+{"topic": "Multipliziere aus.", "text":"$(a+4)(b+2)$", "choice":[ "$ab+8$", "$2a+ab+4b+8$", "$ab+4b+8$" ], "solution":1 },
+{"topic": "Multipliziere aus.", "text":"$(x-3)(x+5)$", "choice":[ "$x^2+2x-15$", "$x+2x-15$", "$x^2-15$" ], "solution":0 },
+{"topic": "Multipliziere aus.", "text":"$(2x+1)(6+x)$", "choice":[ "$2x^2+13x+6$", "$2x+6+x$", "$x^2-15$" ], "solution":0 },
+{"topic": "Multipliziere aus.", "text":"$(5x+2)(5x-2)$", "choice":[ "$25x²+5x-4$", "$25x²-4$", "$25x²+4$" ], "solution":1 },
+
+{"topic": "Welche Zahl ist gesucht?", "text":"Das Dreifache meiner Zahl ist genauso groß wie die Differenz aus 21 und meiner um 3 verminderten Zahl.", "solution":6 },
+{"topic": "Welche Zahl ist gesucht?", "text":"Das Quadrat meiner um 2 vermehrten Zahl ist genauso groß wie das Quadrat meiner Zahl vermehrt um 20. ", "solution":4 } 
+]

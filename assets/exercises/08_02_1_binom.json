@@ -1,0 +1,10 @@
+[
+{"topic": "Forme mit Hilfe einer binomischen Formel um.", "text":"$(x+3)^2$", "choice":[ "$x^2+9$", "$x^2+9x+9$", "$x^2+6x+9$" ], "solution":2 },
+{"topic": "Forme mit Hilfe einer binomischen Formel um.", "text":"$(5-a)^2$", "choice":[ "$25-10a-a^2$", "$25-10a+a^2$", "$25-a^2$" ], "solution":1 },
+{"topic": "Forme mit Hilfe einer binomischen Formel um.", "text":"$(3y-3)^2$", "choice":[ "$9y^2-18y+9$", "$3y^2-18y+9$", "$9y^2-18yy-9$" ], "solution":0 },
+{"topic": "Forme mit Hilfe einer binomischen Formel um.", "text":"$(5x+2) (5x-2)$", "choice":[ "$5x^2+4$", "$25x^2+4$", "$25x^2-4$" ], "solution":2 },
+{"topic": "Fülle die Lücken", "text":"$z^2-49= (z+ \\underline{\\hspace{2em}}\\, ) ( z - \\underline{\\hspace{2em}}\\,)$", "choice":[ "$z^2-49= (z+7) (z-7)$", "$z^2-49= (z+4) (z-9)$", "$z^2-49= (z-7) (z-7)$" ], "solution":0 },
+{"topic": "Fülle die Lücken", "text":"$9a^2-24a+ \\underline{\\hspace{2em}}\\, = ( \\,\\underline{\\hspace{2em}} - a)^2$", "choice":[ "$9a^2-24a+16= (3a-4)^2$", "$9a^2-24a+16= (9a-4)^2$", "$9a^2-24a+16= (4,5a-4)^2$" ], "solution":0 },
+{"topic": "Fülle die Lücken", "text":"$64x^2+ \\underline{\\hspace{2em}}\\, + 1 = (8x + \\underline{\\hspace{2em}}\\, )^2$", "choice":[ "$64x^2+64x+1 = (8x+1)^2$", "$64x^2+32x+1 = (8x+1)^2$", "$64x^2+8x+1 = (8x+1)^2$" ], "solution":2 },
+{"topic": "Fülle die Lücken", "text":"$400- \\underline{\\hspace{2em}}\\, = ( \\,\\underline{\\hspace{2em}} +4y) ( \\,\\underline{\\hspace{2em}} - 4y)$", "choice":[ "$400-16y^2= (400 + 4y) (400 - 4y)$", "$400-4y^2= (20+4y) (20-4y)$", "$400-16y^2 = (20+4y) (20-4y)$" ], "solution":2 }
+]
