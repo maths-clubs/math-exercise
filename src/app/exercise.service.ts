@@ -26,7 +26,6 @@ export class ExerciseService {
 
   readExercisesByFilter( groupFilter: (group: Group) => boolean) : Observable<ExerciseGroup> {
     return this.getGroups().pipe(
-      first(),
       mergeMap(groups => from(groups)),
       filter(group => groupFilter(group)),
       mergeMap(group => this.http.get<Exercise[]>('assets/exercises/' + group.id + '.json').pipe(
@@ -37,7 +36,7 @@ export class ExerciseService {
 
   readExercises( groupId: string ) {
     if (groupId) {
-      this.readExercisesByFilter ( group => group.id ===groupId ).subscribe(
+      this.readExercisesByFilter ( group => group.id === groupId ).subscribe(
         dataExercises => this.exercises$.next(dataExercises)  
       );
     }
