@@ -1,0 +1,7 @@
+[
+{"topic": "Stelle folgende Formel um.", "text":"$A=ab\\,nach\\,a$", "choice":[ "$a=\\frac{A}{a}$", "$a=\\frac{A}{b}$", "$a=\\frac{A^2}{b}$" ], "solution":1 },
+{"topic": "Stelle folgende Formel um.", "text":"$v=\\frac{s}{t}\\,nach\\,t$", "choice":[ "$t=\\frac{s}{v}$", "$t=\\frac{v}{s}$", "$t=sv$" ], "solution":0 },
+{"topic": "Stelle folgende Formel um.", "text":"$A=ab\\,nach\\,a$", "choice":[ "$a=\\frac{A}{a}$", "$a=\\frac{A}{b}$", "$a=\\frac{A^2}{b}$" ], "solution":1 },
+{"topic": "Stelle folgende Formel um.", "text":"$A=ab\\,nach\\,a$", "choice":[ "$a=\\frac{A}{a}$", "$a=\\frac{A}{b}$", "$a=\\frac{A^2}{b}$" ], "solution":1 },
+{"topic": "Stelle folgende Formel um.", "text":"$A=ab\\,nach\\,a$", "choice":[ "$a=\\frac{A}{a}$", "$a=\\frac{A}{b}$", "$a=\\frac{A^2}{b}$" ], "solution":1 }
+]

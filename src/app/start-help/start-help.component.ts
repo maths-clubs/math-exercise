@@ -27,11 +27,21 @@ export class StartHelpComponent implements OnInit, OnDestroy {
     this.subsink.forEach(s => s.unsubscribe());
   }
 
+  compareGroups(g1:Group, g2: Group) : number {
+    let result = g1.name.localeCompare(g2.name);
+    if (result == 0) {
+      if (g1.level && g2.level) {
+        result = g1.level - g2.level;
+      }
+    }
+    return result;
+  }
+
   getFilteredGroups() : Group[] {
     return this.groups
       .filter(g => g.class == this.selectedClass || this.selectedClass == 0)
       .filter(g => g.level == this.selectedLevel || this.selectedLevel == 0)
-      .sort((g1, g2) => g1.name.localeCompare(g2.name));
+      .sort((g1, g2) => this.compareGroups(g1, g2));
   }
 
   getSelectedGroup() : Group {
