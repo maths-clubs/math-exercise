@@ -12,7 +12,7 @@ export class ExerciseService {
       .subscribe(groups => this.groups$.next(groups));
   }
 
-  groups$: Subject<Group[]> = new ReplaySubject<Group[]>();
+  groups$: Subject<Group[]> = new ReplaySubject<Group[]>(1);
 
   getGroups() : Observable<Group[]> {
     return this.groups$;
@@ -22,7 +22,7 @@ export class ExerciseService {
 
   UNKNOWN_EXERCISEGROUP : ExerciseGroup = { group: this.UNKNOWN_GROUP, exercises: [] };
 
-  exercises$ : BehaviorSubject<ExerciseGroup> = new BehaviorSubject<ExerciseGroup>(this.UNKNOWN_EXERCISEGROUP); 
+  exercises$ : Subject<ExerciseGroup> = new ReplaySubject<ExerciseGroup>(1); 
 
   readExercisesByFilter( groupFilter: (group: Group) => boolean) : Observable<ExerciseGroup> {
     return this.getGroups().pipe(
